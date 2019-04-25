@@ -1,5 +1,7 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
+#include <iostream>
+using namespace std;
 
 struct Voxel {
   float r,g,b; // Colors
@@ -25,7 +27,8 @@ public:
   void cutSphere(int xcenter, int ycenter, int zcenter, int radius);
   void putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
   void cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
-
+  void writeOFF(string filename);
+  void writeVECT(string filename);
 };
 
 #endif // MATRIZ_H
