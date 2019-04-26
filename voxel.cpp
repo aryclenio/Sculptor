@@ -39,6 +39,13 @@ Sculptor::Sculptor(int xx, int yy, int zz){
             }
         }
     }
+    for(int i = 0; i < nx; i++){
+        for(int j = 0; j < ny; j++){
+            for(int k = 0; k < nz; k++){
+                c[i][j][k].isOn = false;
+            }
+        }
+    }
 
 }
 
@@ -173,33 +180,49 @@ void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
 }
 
 void Sculptor::writeOFF(string filename){
+    int s[nx][ny][nz];
+    //writing zeroes on the array to verify
+    for(int i = 0; i < nx; i++){
+        for(int j = 0; j < ny; j++){
+            for(int k = 0; k < nz; k++){
+                s[i][j][k] = 0;
+            }
+        }
+    }
     int nvox = 0;
     //variables to check the valid position
     bool ti = true, tj = true, tk = true, surx = false, sury = false, surz=false;
     ofstream outfile (filename);
     outfile<<"OFF"<<endl;
+    for(int i = 1; i < nx-1; i++){
+        for(int j = 1; j < ny-1; j++){
+            for(int k = 1; k < nz-1; k++){
+                //if the point is valid, check if it is surrounded
+                if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}
+                if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}
+                if(c[i][j][k-1].isOn && c[i][j][k+1].isOn){surz = true;}
+                if(surx || sury || surz){
+                    s[i][j][k] = 1;
+                }
+
+            }
+        }
+    }
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
             for(int k = 0; k < nz; k++){
-                //check if the point is valid
-                if(i-1<0 || i+1>nx){ti = false;} if(j-1<0 || j+1>ny){tj = false;} if(k-1<0 || k+1>nz){tk = false;}
-                //if the point is valid, check if it is surrounded
-                if(ti){if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}}
-                if(tj){if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}}
-                if(tk){if(c[i][j][k-1].isOn && c[i][j][k+1].isOn){surz = true;}}
-                if(surx || sury || surz){ c[i][j][k].isOn = false;}
                 if (c[i][j][k].isOn){
                     nvox++;
                 }
             }
         }
     }
-    cout<<nvox;
+    cout<<(nvox);
     outfile << 8*nvox << " " << 6*nvox << " " << 0 << std::endl;
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
             for(int k = 0; k < nz; k++){
-                if (c[i][j][k].isOn){
+                if (c[i][j][k].isOn && s[i][j][k] == 0){
                     outfile << i - 0.5 << " " << j + 0.5 << " " << k - 0.5 << endl;
                     outfile << i - 0.5 << " " << j - 0.5 << " " << k - 0.5 << endl;
                     outfile << i + 0.5 << " " << j - 0.5 << " " << k - 0.5 << endl;
@@ -215,7 +238,7 @@ void Sculptor::writeOFF(string filename){
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
             for(int k = 0; k < nz; k++){
-                if (c[i][j][k].isOn){
+                if (c[i][j][k].isOn && s[i][j][k] ==0){
                     outfile << 4 << " " << 0 + 8*i << " " << 3 + 8*i << " " << 2 + 8*i << " " << 1 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
                     outfile << 4 << " " << 4 + 8*i << " " << 5 + 8*i << " " << 6 + 8*i << " " << 7 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
                     outfile << 4 << " " << 0 + 8*i << " " << 1 + 8*i << " " << 5 + 8*i << " " << 4 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
@@ -229,27 +252,38 @@ void Sculptor::writeOFF(string filename){
     outfile.close();
 }
 void Sculptor::writeVECT(string filename){
+    int s[nx][ny][nz];
+    for(int i = 0; i < nx; i++){
+        for(int j = 0; j < ny; j++){
+            for(int k = 0; k < nz; k++){
+                s[i][j][k] = 0;
+            }
+        }
+    }
     int nvox = 0;
     bool ti = true, tj = true, tk = true, surx = false, sury = false, surz=false;
     ofstream outfile (filename);
     outfile << "VECT" << endl;
+    for(int i = 1; i < nx-1; i++){
+        for(int j = 1; j < ny-1; j++){
+            for(int k = 1; k < nz-1; k++){
+                //if the point is valid, check if it is surrounded
+                if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}
+                if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}
+                if(c[i][j][k-1].isOn && c[i][j][k+1].isOn){surz = true;}
+                if(surx || sury || surz){ s[i][j][k] = 1;}
+            }
+        }
+    }
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
             for(int k = 0; k < nz; k++){
-                //check if the point is valid
-                if(i-1<0 || i+1>nx){ti = false;} if(j-1<0 || j+1>ny){tj = false;} if(k-1<0 || k+1>nz){tk = false;}
-                //if the point is valid, check if it is surrounded
-                if(ti){if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}}
-                if(tj){if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}}
-                if(tk){if(c[i][j][k-1].isOn && c[i][j][k+1].isOn){surz = true;}}
-                if(surx || sury || surz){ c[i][j][k].isOn = false;}
                 if (c[i][j][k].isOn){
                     nvox++;
                 }
             }
         }
     }
-
         outfile << nvox << " " << nvox << " " << nvox << endl;
     for (int i =0;i<nvox; i++) {
         outfile << "1" <<" ";
@@ -261,9 +295,8 @@ void Sculptor::writeVECT(string filename){
     outfile << endl;
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
-            for(int k = 0; k < nz; k++){
-                if(surx || sury || surz){ c[i][j][k].isOn = false;}
-                if (c[i][j][k].isOn){
+            for(int k = 0; k < nz; k++){             
+                if (c[i][j][k].isOn && s[i][j][k] == 0){
                     outfile << i <<" "<< j <<" "<< k << endl;
                 }
             }
@@ -273,7 +306,7 @@ void Sculptor::writeVECT(string filename){
         for(int j = 0; j < ny; j++){
             for(int k = 0; k < nz; k++){
                 if(surx || sury || surz){ c[i][j][k].isOn = false;}
-                if (c[i][j][k].isOn){
+                if (c[i][j][k].isOn && s[i][j][k] == 0){
                     outfile << c[i][j][k].r <<" "<< c[i][j][k].g <<" "<< c[i][j][k].b <<" "<< c[i][j][k].a << endl;
                 }
             }

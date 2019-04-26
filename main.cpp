@@ -15,6 +15,6 @@ int main()
   s.putVoxel(1,0,1);
   s.putVoxel(0,1,1);
   s.putVoxel(1,1,1);
-  s.writeOFF("C:/Users/axbli/Desktop/FingerPrint/test.off");
-  s.writeVECT("C:/Users/axbli/Desktop/FingerPrint/test.vect");
+  s.writeOFF("C:/Users/MatrizD42018/Downloads/Sculptor-master/Sculptor-master/test.off");
+  s.writeVECT("C:/Users/MatrizD42018/Downloads/Sculptor-master/Sculptor-master/test.vect");
 }
