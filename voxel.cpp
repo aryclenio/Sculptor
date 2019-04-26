@@ -109,7 +109,7 @@ void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius){
         {
             for(int k=0; k< zcenter; k++)
             {
-                if ((pow((i-xcenter),2)) + (pow((j-ycenter),2)) + (pow((k-zcenter),2)) <=radius)
+                if ((pow((i-xcenter),2)) + (pow((j-ycenter),2)) + (pow((k-zcenter),2)) <= (pow(radius,2)))
                 {
                     c[i][j][k].isOn = true;
                     c[i][j][k].r = rp;
@@ -128,7 +128,7 @@ void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius){
         {
             for(int k=0; k< zcenter; k++)
             {
-                if ((pow((i-xcenter),2)) + (pow((j-ycenter),2)) + (pow((k-zcenter),2)) <=radius)
+                if ((pow((i-xcenter),2)) + (pow((j-ycenter),2)) + (pow((k-zcenter),2)) <= (pow(radius,2)))
                 {
                     c[i][j][k].isOn = false;
                     c[i][j][k].r = rp;
