@@ -191,12 +191,13 @@ void Sculptor::writeOFF(string filename){
     }
     int nvox = 0;
     //variables to check the valid position
-    bool ti = true, tj = true, tk = true, surx = false, sury = false, surz=false;
+    bool surx, sury surz;
     ofstream outfile (filename);
     outfile<<"OFF"<<endl;
     for(int i = 1; i < nx-1; i++){
         for(int j = 1; j < ny-1; j++){
             for(int k = 1; k < nz-1; k++){
+                surx = false, sury = false, surz=false
                 //if the point is valid, check if it is surrounded
                 if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}
                 if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}
@@ -211,7 +212,7 @@ void Sculptor::writeOFF(string filename){
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
             for(int k = 0; k < nz; k++){
-                if (c[i][j][k].isOn){
+                if (c[i][j][k].isOn && s[i][j][k] == 0){
                     nvox++;
                 }
             }
@@ -261,12 +262,13 @@ void Sculptor::writeVECT(string filename){
         }
     }
     int nvox = 0;
-    bool ti = true, tj = true, tk = true, surx = false, sury = false, surz=false;
+    bool surx = false, sury = false, surz=false;
     ofstream outfile (filename);
     outfile << "VECT" << endl;
     for(int i = 1; i < nx-1; i++){
         for(int j = 1; j < ny-1; j++){
             for(int k = 1; k < nz-1; k++){
+                surx = false, sury = false, surz=false
                 //if the point is valid, check if it is surrounded
                 if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}
                 if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}
@@ -278,7 +280,7 @@ void Sculptor::writeVECT(string filename){
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
             for(int k = 0; k < nz; k++){
-                if (c[i][j][k].isOn){
+                if (c[i][j][k].isOn && s[i][j][k] == 0){
                     nvox++;
                 }
             }
