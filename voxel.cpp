@@ -180,7 +180,7 @@ void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
 }
 
 void Sculptor::writeOFF(string filename){
-    int s[nx][ny][nz];
+    char s[nx][ny][nz];
     //writing zeroes on the array to verify
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
@@ -191,13 +191,13 @@ void Sculptor::writeOFF(string filename){
     }
     int nvox = 0;
     //variables to check the valid position
-    bool surx, sury surz;
+    bool surx, sury, surz;
     ofstream outfile (filename);
     outfile<<"OFF"<<endl;
     for(int i = 1; i < nx-1; i++){
         for(int j = 1; j < ny-1; j++){
             for(int k = 1; k < nz-1; k++){
-                surx = false, sury = false, surz=false
+                surx = false, sury = false, surz=false;
                 //if the point is valid, check if it is surrounded
                 if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}
                 if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}
@@ -220,40 +220,48 @@ void Sculptor::writeOFF(string filename){
     }
     cout<<(nvox);
     outfile << 8*nvox << " " << 6*nvox << " " << 0 << std::endl;
-    for(int i = 0; i < nx; i++){
-        for(int j = 0; j < ny; j++){
-            for(int k = 0; k < nz; k++){
-                if (c[i][j][k].isOn && s[i][j][k] == 0){
-                    outfile << i - 0.5 << " " << j + 0.5 << " " << k - 0.5 << endl;
-                    outfile << i - 0.5 << " " << j - 0.5 << " " << k - 0.5 << endl;
-                    outfile << i + 0.5 << " " << j - 0.5 << " " << k - 0.5 << endl;
-                    outfile << i + 0.5 << " " << j + 0.5 << " " << k - 0.5 << endl;
-                    outfile << i - 0.5 << " " << j + 0.5 << " " << k + 0.5 << endl;
-                    outfile << i - 0.5 << " " << j - 0.5 << " " << k + 0.5 << endl;
-                    outfile << i + 0.5 << " " << j - 0.5 << " " << k + 0.5 << endl;
-                    outfile << i + 0.5 << " " << j + 0.5 << " " << k + 0.5 << endl;
-                }
-            }
-        }
-    }
-    for(int i = 0; i < nx; i++){
-        for(int j = 0; j < ny; j++){
-            for(int k = 0; k < nz; k++){
-                if (c[i][j][k].isOn && s[i][j][k] ==0){
-                    outfile << 4 << " " << 0 + 8*i << " " << 3 + 8*i << " " << 2 + 8*i << " " << 1 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
-                    outfile << 4 << " " << 4 + 8*i << " " << 5 + 8*i << " " << 6 + 8*i << " " << 7 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
-                    outfile << 4 << " " << 0 + 8*i << " " << 1 + 8*i << " " << 5 + 8*i << " " << 4 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
-                    outfile << 4 << " " << 0 + 8*i << " " << 4 + 8*i << " " << 7 + 8*i << " " << 3 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
-                    outfile << 4 << " " << 3 + 8*i << " " << 7 + 8*i << " " << 6 + 8*i << " " << 2 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
-                    outfile << 4 << " " << 1 + 8*i << " " << 2 + 8*i << " " << 6 + 8*i << " " << 5 + 8*i << " " << c[i][j][k].r << " " << c[i][j][k].g << " " << c[i][j][k].b << " " << c[i][j][k].a << " " << endl;
-                }
-            }
-        }
-    }
+    double lowX,highX,lowY,highY,lowZ,highZ;
+
+     for(int k=0;k<nz; k++){
+         for(int j=0;j<ny;j++){
+             for (int i=0;i<nx;i++) {
+                 if(c[i][j][k].isOn && s[i][j][k] == 0){
+                         outfile<<-0.5+i<<" "<<0.5+j<<" "<<-0.5+k<<endl;
+                         outfile<<-0.5+i<<" "<<-0.5+j<<" "<<-0.5+k<<endl;
+                         outfile<<0.5+i<<" "<<-0.5+j<<" "<<-0.5+k<<endl;
+                         outfile<<0.5+i<<" "<<0.5+j<<" "<<-0.5+k<<endl;
+                         outfile<<-0.5+i<<" "<<0.5+j<<" "<<0.5+k<<endl;
+                         outfile<<-0.5+i<<" "<<-0.5+j<<" "<<0.5+k<<endl;
+                         outfile<<0.5+i<<" "<<-0.5+j<<" "<<0.5+k<<endl;
+                         outfile<<0.5+i<<" "<<0.5+j<<" "<<0.5+k<<endl;
+                 }
+             }
+         }
+
+     }
+     int nfc =0;
+     for(int k=0;k<nz; k++){
+          for(int j=0;j<ny;j++){
+              for (int i=0;i<nx;i++) {
+                  if(c[i][j][k].isOn && s[i][j][k] == 0){
+                      outfile<<"4 "<<0+nfc*8<<" "<<3+nfc*8<<" "<<2+nfc*8<<" "<<1+nfc*8<<" "<<c[i][j][k].r<<" "<<c[i][j][k].g<<" "<<c[i][j][k].b<<" "<<c[i][j][k].a<<endl
+                          <<"4 "<<4+nfc*8<<" "<<5+nfc*8<<" "<<6+nfc*8<<" "<<7+nfc*8<<" "<<c[i][j][k].r<<" "<<c[i][j][k].g<<" "<<c[i][j][k].b<<" "<<c[i][j][k].a<<endl
+                          <<"4 "<<0+nfc*8<<" "<<1+nfc*8<<" "<<5+nfc*8<<" "<<4+nfc*8<<" "<<c[i][j][k].r<<" "<<c[i][j][k].g<<" "<<c[i][j][k].b<<" "<<c[i][j][k].a<<endl
+                          <<"4 "<<0+nfc*8<<" "<<4+nfc*8<<" "<<7+nfc*8<<" "<<3+nfc*8<<" "<<c[i][j][k].r<<" "<<c[i][j][k].g<<" "<<c[i][j][k].b<<" "<<c[i][j][k].a<<endl
+                          <<"4 "<<3+nfc*8<<" "<<7+nfc*8<<" "<<6+nfc*8<<" "<<2+nfc*8<<" "<<c[i][j][k].r<<" "<<c[i][j][k].g<<" "<<c[i][j][k].b<<" "<<c[i][j][k].a<<endl
+                          <<"4 "<<1+nfc*8<<" "<<2+nfc*8<<" "<<6+nfc*8<<" "<<5+nfc*8<<" "<<c[i][j][k].r<<" "<<c[i][j][k].g<<" "<<c[i][j][k].b<<" "<<c[i][j][k].a<<endl;
+                      nfc++;
+                  }
+
+
+              }
+          }
+
+      }
     outfile.close();
 }
 void Sculptor::writeVECT(string filename){
-    int s[nx][ny][nz];
+    char s[nx][ny][nz];
     for(int i = 0; i < nx; i++){
         for(int j = 0; j < ny; j++){
             for(int k = 0; k < nz; k++){
@@ -268,7 +276,7 @@ void Sculptor::writeVECT(string filename){
     for(int i = 1; i < nx-1; i++){
         for(int j = 1; j < ny-1; j++){
             for(int k = 1; k < nz-1; k++){
-                surx = false, sury = false, surz=false
+                surx = false, sury = false, surz=false;
                 //if the point is valid, check if it is surrounded
                 if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}
                 if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}
