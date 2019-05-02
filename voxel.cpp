@@ -63,6 +63,7 @@ void Sculptor::setColor(float r, float g, float b, float alpha){
     if(g >1){gp = 1;}else if(g <0){gp = 0;}else{gp = g;}
     if(b >1){bp = 1;}else if(b <0){bp = 0;}else{bp = b;}
     if(alpha >1){ap = 1;}else if(alpha <0){ap = 0;}else{ap = alpha;}
+    cout<<rp<<gp<<bp<<endl;
 }
 
 void Sculptor::putVoxel(int x, int y, int z){
@@ -77,102 +78,78 @@ void Sculptor::cutVoxel(int x, int y, int z){
 }
 
 void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1){
-    for (int i = x0; i<x1+1; i++){
-        for (int j = y0; j<y1+1; j++){
-            for (int k = z0; i<z1+1; k++){
-                c[i][j][k].isOn = true;
-                c[i][j][k].r = rp;
-                c[i][j][k].g = gp;
-                c[i][j][k].b = bp;
-                c[i][j][k].a = ap;
+    for (int i = x0; i<x1; i++){
+        for (int j = y0; j<y1; j++){
+            for (int k = z0; k<z1; k++){
+                putVoxel(i,j,k);
             }
         }
     }
 }
 void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1){
-    for (int i = x0; i<x1+1; i++){
-        for (int j = y0; j<y1+1; j++){
-            for (int k = z0; i<z1+1; k++){
-                c[i][j][k].isOn = false;
-                c[i][j][k].r = rp;
-                c[i][j][k].g = gp;
-                c[i][j][k].b = bp;
-                c[i][j][k].a = ap;
+    for (int i = x0; i<x1; i++){
+        for (int j = y0; j<y1; j++){
+            for (int k = z0; k<z1; k++){
+                cutVoxel(i,j,k);
             }
         }
     }
 }
 void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius){
-    for(int i=0; i< xcenter; i++)
+    for(int i=xcenter-radius; i< xcenter+radius; i++)
     {
-        for(int j=0; j< ycenter; j++)
+        for(int j=ycenter-radius; j< ycenter+radius; j++)
         {
-            for(int k=0; k< zcenter; k++)
+            for(int k=zcenter-radius; k< zcenter+radius; k++)
             {
-                if ((pow((i-xcenter),2)) + (pow((j-ycenter),2)) + (pow((k-zcenter),2)) <= (pow(radius,2)))
+                if (((float)pow((i-xcenter),2)/(pow(radius,2))) + (((float)pow((j-ycenter),2))/(float)(pow(radius,2))) + (((float)pow((k-zcenter),2))/(float)(pow(radius,2))) <=1.0)
                 {
-                    c[i][j][k].isOn = true;
-                    c[i][j][k].r = rp;
-                    c[i][j][k].g = gp;
-                    c[i][j][k].b = bp;
-                    c[i][j][k].a = ap;
+                    putVoxel(i,j,k);
                 }
             }
         }
     }
 }
 void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius){
-    for(int i=0; i< xcenter; i++)
+    for(int i=xcenter-radius; i< xcenter+radius; i++)
     {
-        for(int j=0; j< ycenter; j++)
+        for(int j=ycenter-radius; j< ycenter+radius; j++)
         {
-            for(int k=0; k< zcenter; k++)
+            for(int k=zcenter-radius; k< zcenter+radius; k++)
             {
-                if ((pow((i-xcenter),2)) + (pow((j-ycenter),2)) + (pow((k-zcenter),2)) <= (pow(radius,2)))
+                if (((float)pow((i-xcenter),2)/(pow(radius,2))) + (((float)pow((j-ycenter),2))/(float)(pow(radius,2))) + (((float)pow((k-zcenter),2))/(float)(pow(radius,2))) <=1.0)
                 {
-                    c[i][j][k].isOn = false;
-                    c[i][j][k].r = rp;
-                    c[i][j][k].g = gp;
-                    c[i][j][k].b = bp;
-                    c[i][j][k].a = ap;
+                    cutVoxel(i,j,k);
                 }
             }
         }
     }
 }
 void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz){
-    for(int i=0; i< rx; i++)
+    for(int i=xcenter-rx; i< xcenter+rx; i++)
     {
-        for(int j=0; j< ry; j++)
+        for(int j=ycenter-ry; j< ycenter+ry; j++)
         {
-            for(int k=0; k< rz; k++)
+            for(int k=zcenter - rz; k< zcenter + rz; k++)
             {
-                if ((pow((i-xcenter),2)/(float)(pow(rx,2))) + ((pow((j-ycenter),2))/(float)(pow(ry,2))) + ((pow((k-zcenter),2))/(float)(pow(rz,2))) <=1.0)
+                if (((float)pow((i-xcenter),2)/(pow(rx,2))) + (((float)pow((j-ycenter),2))/(float)(pow(ry,2))) + (((float)pow((k-zcenter),2))/(float)(pow(rz,2))) <=1.0)
                 {
-                    c[i][j][k].isOn = true;
-                    c[i][j][k].r = rp;
-                    c[i][j][k].g = gp;
-                    c[i][j][k].b = bp;
-                    c[i][j][k].a = ap;
+                   putVoxel(i,j,k);
                 }
             }
         }
     }
 }
 void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz){
-    for(int i=0; i< rx; i++)
+    for(int i=xcenter-rx; i< xcenter+rx; i++)
     {
-        for(int j=0; j< ry; j++)
+        for(int j=ycenter-ry; j< ycenter+ry; j++)
         {
-            for(int k=0; k< rz; k++)
+            for(int k=zcenter - rz; k< zcenter + rz; k++)
             {
-                if ((pow((i-xcenter),2)/(float)(pow(rx,2))) + ((pow((j-ycenter),2))/(float)(pow(ry,2))) + ((pow((k-zcenter),2))/(float)(pow(rz,2))) <=1.0)
+                if (((float)pow((i-xcenter),2)/(pow(rx,2))) + (((float)pow((j-ycenter),2))/(float)(pow(ry,2))) + (((float)pow((k-zcenter),2))/(float)(pow(rz,2))) <=1.0)
                 {
-                    c[i][j][k].isOn = false;
-                    c[i][j][k].r = rp;
-                    c[i][j][k].g = gp;
-                    c[i][j][k].b = bp;
-                    c[i][j][k].a = ap;
+                    cutVoxel(i,j,k);
                 }
             }
         }
@@ -197,12 +174,12 @@ void Sculptor::writeOFF(string filename){
     for(int i = 1; i < nx-1; i++){
         for(int j = 1; j < ny-1; j++){
             for(int k = 1; k < nz-1; k++){
-                surx = false, sury = false, surz=false;
+                surx = false; sury = false; surz=false;
                 //if the point is valid, check if it is surrounded
                 if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}
                 if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}
                 if(c[i][j][k-1].isOn && c[i][j][k+1].isOn){surz = true;}
-                if(surx || sury || surz){
+                if(surx && sury && surz){
                     s[i][j][k] = 1;
                 }
 
@@ -220,7 +197,7 @@ void Sculptor::writeOFF(string filename){
     }
     cout<<(nvox);
     outfile << 8*nvox << " " << 6*nvox << " " << 0 << std::endl;
-    double lowX,highX,lowY,highY,lowZ,highZ;
+
 
      for(int k=0;k<nz; k++){
          for(int j=0;j<ny;j++){
@@ -281,7 +258,7 @@ void Sculptor::writeVECT(string filename){
                 if(c[i-1][j][k].isOn && c[i+1][j][k].isOn){surx = true;}
                 if(c[i][j-1][k].isOn && c[i][j+1][k].isOn){sury = true;}
                 if(c[i][j][k-1].isOn && c[i][j][k+1].isOn){surz = true;}
-                if(surx || sury || surz){ s[i][j][k] = 1;}
+                if(surx && sury && surz){ s[i][j][k] = 1;}
             }
         }
     }
