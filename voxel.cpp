@@ -147,7 +147,7 @@ void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
         {
             for(int k=0; k< rz; k++)
             {
-                if ((pow((i-xcenter),2)/(float)(pow(xcenter,2))) + ((pow((j-ycenter),2))/(float)(pow(ycenter,2))) + ((pow((k-zcenter),2))/(float)(pow(zcenter,2))) <=1.0)
+                if ((pow((i-xcenter),2)/(float)(pow(rx,2))) + ((pow((j-ycenter),2))/(float)(pow(ry,2))) + ((pow((k-zcenter),2))/(float)(pow(rz,2))) <=1.0)
                 {
                     c[i][j][k].isOn = true;
                     c[i][j][k].r = rp;
@@ -166,7 +166,7 @@ void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
         {
             for(int k=0; k< rz; k++)
             {
-                if ((pow((i-xcenter),2)/(float)(pow(xcenter,2))) + ((pow((j-ycenter),2))/(float)(pow(ycenter,2))) + ((pow((k-zcenter),2))/(float)(pow(zcenter,2))) <=1.0)
+                if ((pow((i-xcenter),2)/(float)(pow(rx,2))) + ((pow((j-ycenter),2))/(float)(pow(ry,2))) + ((pow((k-zcenter),2))/(float)(pow(rz,2))) <=1.0)
                 {
                     c[i][j][k].isOn = false;
                     c[i][j][k].r = rp;
