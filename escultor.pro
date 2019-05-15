@@ -4,7 +4,21 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    voxel.cpp
+    cutbox.cpp \
+    sculptor.cpp \
+    putbox.cpp \
+    putsphere.cpp \
+    cutsphere.cpp \
+    putellipsoid.cpp \
+    cutellipsoid.cpp
 
 HEADERS += \
-    voxel.h
+    voxel.h \
+    cutbox.h \
+    figurageometrica.h \
+    putbox.h \
+    sculptor.h \
+    putsphere.h \
+    cutsphere.h \
+    putellipsoid.h \
+    cutellipsoid.h
