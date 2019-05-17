@@ -1,6 +1,7 @@
 #include "putellipsoid.h"
 #include <math.h>
-PutEllipsoid::PutEllipsoid(int xc, int yc, int zc, int radx, int rady, int radz)
+
+PutEllipsoid::PutEllipsoid(int xc, int yc, int zc, int radx, int rady, int radz, int rb,int gb,int bb,int ab)
 {
     xcenter = xc;
     ycenter = yc;
@@ -8,6 +9,7 @@ PutEllipsoid::PutEllipsoid(int xc, int yc, int zc, int radx, int rady, int radz)
     rx = radx;
     ry = rady;
     rz = radz;
+    r = rb; g = gb; b = bb; a = ab;
 }
 
 PutEllipsoid::~PutEllipsoid()
@@ -24,6 +26,7 @@ void PutEllipsoid::draw(Sculptor &t){
             {
                 if (((float)pow((i-xcenter),2)/(pow(rx,2))) + (((float)pow((j-ycenter),2))/(float)(pow(ry,2))) + (((float)pow((k-zcenter),2))/(float)(pow(rz,2))) <=1.0)
                 {
+                   t.setColor(r,g,b,a);
                    t.putVoxel(i,j,k);
                 }
             }

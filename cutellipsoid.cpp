@@ -1,5 +1,6 @@
 #include "cutellipsoid.h"
 #include <math.h>
+
 CutEllipsoid::CutEllipsoid(int xc, int yc, int zc, int radx, int rady, int radz)
 {
     xcenter = xc;
