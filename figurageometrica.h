@@ -4,8 +4,8 @@
 class FiguraGeometrica{
 
 public:
-    FiguraGeometrica();
+    //FiguraGeometrica();
     virtual void draw(Sculptor &t)=0;
-    virtual  ~FiguraGeometrica();
+    virtual  ~FiguraGeometrica(){};
 };
 #endif // FIGURAGEOMETRICA_H
