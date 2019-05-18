@@ -1,0 +1,27 @@
+dim 100 100 100
+putBox 0 99 0 99 0 99 0 0 0 0.5
+cutBox 0 99 1 98 1 98
+putSphere 20 20 20 15 1 0 0 1
+putBox 70 90 70 90 70 90 1 0 0 1
+cutSphere 80 80 80 15
+putEllipsoid 60 20 50 25 10 15 0 1 1 1
+putBox 40 60 20 40 70 90
+cutEllipsoid 50 30 60 25 10 15
+putVoxel 40 40 40 1 1 1 1
+putVoxel 40 42 40 1 1 1 1
+putVoxel 40 40 42 1 1 1 1
+putVoxel 42 40 40 1 1 1 1
+putVoxel 44 40 40 1 1 1 1
+putVoxel 40 44 40 1 1 1 1
+putVoxel 40 40 44 1 1 1 1
+putVoxel 42 40 42 1 1 1 1
+putVoxel 44 40 44 1 1 1 1
+cutVoxel 45 99 45
+cutVoxel 47 99 45
+cutVoxel 49 99 45
+cutVoxel 47 99 45
+cutVoxel 47 99 47
+cutVoxel 47 99 49
+cutVoxel 49 99 45
+cutVoxel 49 99 47
+cutVoxel 49 99 49

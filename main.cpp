@@ -8,6 +8,8 @@
 #include "figurageometrica.h"
 #include "voxel.h"
 #include "putbox.h"
+#include "putvoxel.h"
+#include "cutvoxel.h"
 #include "cutbox.h"
 #include "putsphere.h"
 #include "cutsphere.h"
@@ -19,7 +21,7 @@ using namespace std;
 int main(){
 
     ifstream figuresFile; //input text file
-    figuresFile.open("/home/iago/Documents/MyTextFile.txt");
+    figuresFile.open("C:/Users/ARY/Downloads/Sculptor-part2/Sculptor-part2/teste.txt");
 
     vector<string> allLines; //array that get all lines from the input file
     string currentLine; //
@@ -37,7 +39,7 @@ int main(){
 
     //Sculptor Functions Calls
 
-    float red, green, blue, transparency;
+    int red, green, blue, transparency;
     string sculptorFunc; //string that gets the function at current line
     vector<FiguraGeometrica*> figure;
     Sculptor *s;
@@ -59,13 +61,13 @@ int main(){
         else if(sculptorFunc == "putvoxel"){
             int posX, posY, posZ;
             lineParts >> posX >> posY >> posZ >> red >> green >> blue >> transparency;
-            figure.push_back(new putVoxel(posX, posY, posZ, red, green, blue, transparency));
+            figure.push_back(new PutVoxel(posX, posY, posZ, red, green, blue, transparency));
             figure[i-1]->draw(*s);
         }
         else if(sculptorFunc == "cutvoxel"){
             int posX, posY, posZ;
             lineParts >> posX >> posY >> posZ;
-            figure.push_back(new cutVoxel(posX, posY, posZ));
+            figure.push_back(new CutVoxel(posX, posY, posZ));
             figure[i-1]->draw(*s);
         }
         else if(sculptorFunc == "putbox"){
@@ -105,5 +107,5 @@ int main(){
             figure[i-1]->draw(*s);
         }
     }
-
+        s->writeOFF("C:/Users/ARY/Downloads/Sculptor-part2/Sculptor-part2/t.off");
 }
