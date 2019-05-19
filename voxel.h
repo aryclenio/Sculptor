@@ -1,34 +1,13 @@
+///
 #ifndef MATRIZ_H
 #define MATRIZ_H
 #include <iostream>
 using namespace std;
 
 struct Voxel {
-  float r,g,b; // Colors
-  float a;
-  bool isOn; // Included or not
+  float r,g,b; ///Properties of the collor mix, using values between 0 and 1.
+  float a; ///Value over 0 to 1 that indicates the transparency of the voxel. 0 indicates full transparency and 1 indicates full opacity.
+  bool isOn; ///A true or false variable that that validates if the voxel will be shown in the sculpture.
 };
 
-class Sculptor{
-private:
-  // no. linhas e colunas
-  int nx, ny, nz;
-  float rp,gp,bp,ap;
-  Voxel ***c;
-public:
-  Sculptor(int xx=0, int yy=0, int zz=0);
-  ~Sculptor();
-  void setColor(float r, float g, float b, float alpha);
-  void putVoxel(int x, int y, int z);
-  void cutVoxel(int x, int y, int z);
-  void putBox(int x0, int x1, int y0, int y1, int z0, int z1);
-  void cutBox(int x0, int x1, int y0, int y1, int z0, int z1);
-  void putSphere(int xcenter, int ycenter, int zcenter, int radius);
-  void cutSphere(int xcenter, int ycenter, int zcenter, int radius);
-  void putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
-  void cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
-  void writeOFF(string filename);
-  void writeVECT(string filename);
-};
-
-#endif // MATRIZ_H
+#endif
