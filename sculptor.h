@@ -1,7 +1,10 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
 #include <iostream>
+#include "vector"
 using namespace std;
+
+enum{XY,YZ,ZX};
 
 struct Voxel {
   float r,g,b; // Colors
@@ -29,7 +32,7 @@ public:
   void cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
   void writeOFF(string filename);
   void writeVECT(string filename);
-  void readMx(int z=0);
+  vector<vector<Voxel>> readMx(int dim=0, int pl = XY);
 };
 
 #endif // MATRIZ_H

@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "sculptor.h"
-
+#include "vector"
 namespace Ui {
 class MainWindow;
 }
@@ -18,6 +18,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    std::vector<std::vector<Voxel>> m;
 };
 
 #endif // MAINWINDOW_H
