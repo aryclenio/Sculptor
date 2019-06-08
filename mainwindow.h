@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "sculptor.h"
 #include "vector"
+
 namespace Ui {
 class MainWindow;
 }
