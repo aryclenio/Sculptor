@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "sculptor.h"
+#include "painter.h"
 #include "vector"
 
 namespace Ui {
@@ -17,10 +18,18 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-private slots:
-    void on_putVoxel_clicked();
-
-    void on_putVoxel_clicked(bool checked);
+public slots:
+    void changePlane1(); //XY
+    void changePlane2(); //XZ
+    void changePlane3(); //YZ
+    void pVoxel(); //PV
+    void cVoxel(); //CV
+    void pBox(); //PB
+    void cBox(); //CB
+    void pShpere(); //PS
+    void cShpere(); //CS
+    void pEllip(); //PE
+    void cEllip(); //PS
 
 private:
     Ui::MainWindow *ui;

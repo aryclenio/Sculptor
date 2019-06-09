@@ -51,4 +51,51 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+void MainWindow::changePlane1() //XY
+{
+    ui->widget->pl = 1;
+    emit ui->widget->planeChosen(1);
+}
+void MainWindow::changePlane2() //XZ
+{
+    ui->widget->pl = 2;
+    emit ui->widget->planeChosen(2);
+}
+void MainWindow::changePlane3() //YZ
+{
+    ui->widget->pl = 3;
+    emit ui->widget->planeChosen(3);
+}
 
+void MainWindow::pVoxel() //PV
+{
+    ui->widget->sh = 1;
+}
+void MainWindow::cVoxel() //CV
+{
+    ui->widget->sh = 2;
+}
+void MainWindow::pBox() //PB
+{
+    ui->widget->sh = 3;
+}
+void MainWindow::cBox() //CB
+{
+    ui->widget->sh= 4;
+}
+void MainWindow::pShpere() //PS
+{
+    ui->widget->sh = 5;
+}
+void MainWindow::cShpere() //CS
+{
+    ui->widget->sh = 6;
+}
+void MainWindow::pEllip() //PE
+{
+    ui->widget->sh = 7;
+}
+void MainWindow::cEllip() //PS
+{
+    ui->widget->sh= 8;
+}
