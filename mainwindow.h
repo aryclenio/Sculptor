@@ -17,6 +17,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_putVoxel_clicked();
+
+    void on_putVoxel_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
     std::vector<std::vector<Voxel>> m;

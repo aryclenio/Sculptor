@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>826</width>
-    <height>531</height>
+    <width>817</width>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,56 +35,56 @@
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="putVoxel">
        <property name="text">
         <string>PutVoxel</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="cutVoxel">
        <property name="text">
         <string>CutVoxel</string>
        </property>
       </widget>
      </item>
      <item row="0" column="2">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="putBox">
        <property name="text">
         <string>PutBox</string>
        </property>
       </widget>
      </item>
      <item row="0" column="3">
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="cutBox">
        <property name="text">
         <string>CutBox</string>
        </property>
       </widget>
      </item>
      <item row="0" column="4">
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="putEllipsoid">
        <property name="text">
-        <string>PutEllipsoidl</string>
+        <string>PutEllipsoid</string>
        </property>
       </widget>
      </item>
      <item row="0" column="5">
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="cutEllipsoid">
        <property name="text">
         <string>CutEllipsoid</string>
        </property>
       </widget>
      </item>
      <item row="0" column="6">
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="putSphere">
        <property name="text">
         <string>PutSphere</string>
        </property>
       </widget>
      </item>
      <item row="0" column="7">
-      <widget class="QPushButton" name="pushButton_8">
+      <widget class="QPushButton" name="cutSphere">
        <property name="text">
         <string>CutSphere</string>
        </property>
@@ -96,8 +96,8 @@
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>190</y>
-      <width>181</width>
+      <y>200</y>
+      <width>161</width>
       <height>91</height>
      </rect>
     </property>
@@ -221,16 +221,80 @@
      </item>
     </layout>
    </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>200</y>
+      <width>191</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Select Layer</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QSlider" name="verticalSlider">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSlider" name="verticalSlider_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QSlider" name="verticalSlider_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Y</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Z</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>826</width>
+     <width>817</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuCreate">
+    <property name="title">
+     <string>Create</string>
+    </property>
+    <addaction name="actionCreate_Plane"/>
+   </widget>
+   <addaction name="menuCreate"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -241,6 +305,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionCreate_Plane">
+   <property name="text">
+    <string>Create New Canvas</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
