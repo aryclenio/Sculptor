@@ -58,6 +58,7 @@ vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
     if (pl == XY){
         for(int i = 0; i<nx; i++){
             for(int j = 0; j<ny; j++){
+                l[j].isOn = c[i][j][dim].isOn;
                 l[j].r = c[i][j][dim].r;
                 l[j].g = c[i][j][dim].g;
                 l[j].b = c[i][j][dim].b;
@@ -69,6 +70,7 @@ vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
     if (pl == YZ){
         for(int i = 0; i<nx; i++){
             for(int j = 0; j<ny; j++){
+                l[j].isOn = c[i][j][dim].isOn;
                 l[j].r = c[i][j][dim].r;
                 l[j].g = c[i][j][dim].g;
                 l[j].b = c[i][j][dim].b;
@@ -81,6 +83,7 @@ vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
     if (pl == ZX){
         for(int i = 0; i<nx; i++){
             for(int j = 0; j<ny; j++){
+                l[j].isOn = c[i][j][dim].isOn;
                 l[j].r = c[i][j][dim].r;
                 l[j].g = c[i][j][dim].g;
                 l[j].b = c[i][j][dim].b;
@@ -107,7 +110,6 @@ void Sculptor::setColor(float r, float g, float b, float alpha){
     if(g >1){gp = 1;}else if(g <0){gp = 0;}else{gp = g;}
     if(b >1){bp = 1;}else if(b <0){bp = 0;}else{bp = b;}
     if(alpha >1){ap = 1;}else if(alpha <0){ap = 0;}else{ap = alpha;}
-    cout<<rp<<gp<<bp<<endl;
 }
 
 void Sculptor::putVoxel(int x, int y, int z){

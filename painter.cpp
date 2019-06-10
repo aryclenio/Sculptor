@@ -5,15 +5,16 @@
 #include <QPen>
 #include <QBrush>
 #include <QMouseEvent>
+#include <QDebug>
 Painter::Painter(QWidget *parent) : QWidget(parent)
 {
-    sx = 10; sy = 10; sz=10;    //Será setado por dialogBox
+    sx = 20; sy = 20; sz=20;    //Será setado por dialogBox
     s = new Sculptor(sx,sy,sz);
 
-        dim=5; pl=1;   //setado por slider e botoes
+        dim=5; pl=XY;   //setado por slider e botoes
         p = s->readMx(dim,pl);
 
-        sx=0; sy=0; sz=0; rad=0;rx=0;ry=0;rz=0;
+        sx=0; sy=0; sz=0; rad=0; rx=0;ry=0;rz=0;
 
         r = 255; g=255; b=255; a = 255;
 
@@ -36,6 +37,7 @@ void Painter::paintEvent(QPaintEvent *event)
     brush.setStyle(Qt::SolidPattern);
       // entregando o pincel ao pintor
     pa.setBrush(brush);
+        p = s->readMx(dim,pl);
 
     int dim1 = width()/p[0].size();
     int dim2 = height()/p.size();
@@ -43,14 +45,15 @@ void Painter::paintEvent(QPaintEvent *event)
     h = dim2;
     for(int i =0; i<width(); i= i+dim1){
         for(int j =0; j<height(); j = j+dim2){
-            pa.drawRect(i,j,dim1, dim2);
+            pa.drawRect(i,j,dim1,dim2);
     }
 }
-    brush.setColor(QColor(r,g,b,a));   //Cor setada por sliders
+
+    brush.setColor(QColor(r,g,b,a));
     brush.setStyle(Qt::SolidPattern);
     pa.setBrush(brush);
 
-    for(int i=0; i<p.size();i++){    //trabalhar com iterators pra desenhar voxels ligados
+    for(int i=0; i<p.size();i++){
            for(int j=0; j<p[0].size();j++){
                 if(p[i][j].isOn){
                         int xcenter =i*dim1;
@@ -70,6 +73,7 @@ void Painter::mousePressEvent(QMouseEvent *event){
   if(event->button() == Qt::LeftButton ){
     emit clickX(event->x());
     emit clickY(event->y());
+      qDebug() <<mx << " " << my;
     press = true;
       mx = (event->x())/w;
       my = (event->y())/h;
@@ -78,23 +82,23 @@ void Painter::mousePressEvent(QMouseEvent *event){
 
       if(pl == XY)
           {
-              x=my;
+              x=mx;
               y=my;
               z=dim;
           }
 
-          else if(pl == YZ) //XZ
+          else if(pl == YZ)
           {
-              x=my;
-              z=my;
-              y=dim;
-          }
-
-          else if(pl== ZX) //YZ
-          {
-              y=my;
+              y=mx;
               z=my;
               x=dim;
+          }
+
+          else if(pl== ZX)
+          {
+              z=mx;
+              x=my;
+              y=dim;
           }
       Painter::shape(sh);
   }
@@ -142,7 +146,6 @@ void Painter::shape(int sh)
     {
        s->cutEllipsoid(x,y,z,rx,ry,rz);
     }
-    p=s->readMx(dim,pl);
     repaint();
 }
 

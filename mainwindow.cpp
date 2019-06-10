@@ -16,35 +16,35 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->putVoxel,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(1)));
+              SLOT(pVoxel()));
     connect(ui->cutVoxel,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(2)));
+              SLOT(cVoxel()));
     connect(ui->putBox,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(3)));
+              SLOT(pBox()));
     connect(ui->cutBox,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(4)));
+              SLOT(cBox()));
     connect(ui->putEllipsoid,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(5)));
+              SLOT(pShpere()));
     connect(ui->cutEllipsoid,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(6)));
+              SLOT(cShpere()));
     connect(ui->putSphere,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(7)));
+              SLOT(pEllip()));
     connect(ui->cutSphere,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(8)));
+              SLOT(cEllip()));
 }
 
 MainWindow::~MainWindow()
