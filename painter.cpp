@@ -16,7 +16,7 @@ Painter::Painter(QWidget *parent) : QWidget(parent)
 
         sx=0; sy=0; sz=0; rad=0; rx=0;ry=0;rz=0;
 
-        r = 255; g=255; b=255; a = 255;
+        r = 0; g=0; b=0; a = 255;
 
         sh=1;
     setMouseTracking(true);
@@ -30,7 +30,7 @@ void Painter::paintEvent(QPaintEvent *event)
     QPen pen;
     QBrush brush;
     pen.setColor(QColor(0,0,0));
-    pen.setWidth(2);
+    pen.setWidth(1);
       // entregando a caneta ao pintor
     pa.setPen(pen);
     brush.setColor(QColor(255,255,255));

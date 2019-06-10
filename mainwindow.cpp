@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m = s->readMx();
     ui->widget->recMx(m);
     ui->setupUi(this);
+    ui->redSlider->setMaximum(255);
 
     connect(ui->putVoxel,
               SIGNAL(clicked(bool)),
@@ -43,8 +44,12 @@ MainWindow::MainWindow(QWidget *parent) :
               SLOT(pEllip()));
     connect(ui->cutSphere,
               SIGNAL(clicked(bool)),
-              this,
+              this, //esta this porque eu estou falando da mainwindow
               SLOT(cEllip()));
+    connect(ui->redSlider,
+              SIGNAL(valueChanged(int)),
+              ui->widget, //aqui é onde eu vou mandar
+              SLOT(changeRed(int)));
 }
 
 MainWindow::~MainWindow()
