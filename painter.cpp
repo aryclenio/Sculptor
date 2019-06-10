@@ -8,7 +8,7 @@
 #include <QDebug>
 Painter::Painter(QWidget *parent) : QWidget(parent)
 {
-    sx = 20; sy = 20; sz=20;    //Será setado por dialogBox
+    sx = 10; sy = 10; sz=10;    //Será setado por dialogBox
     s = new Sculptor(sx,sy,sz);
 
         dim=5; pl=XY;   //setado por slider e botoes
@@ -49,13 +49,14 @@ void Painter::paintEvent(QPaintEvent *event)
     }
 }
 
-    brush.setColor(QColor(r,g,b,a));
-    brush.setStyle(Qt::SolidPattern);
-    pa.setBrush(brush);
+
 
     for(int i=0; i<p.size();i++){
            for(int j=0; j<p[0].size();j++){
                 if(p[i][j].isOn){
+                    brush.setColor(QColor(p[i][j].r,p[i][j].g,p[i][j].b,p[i][j].a));
+                    brush.setStyle(Qt::SolidPattern);
+                    pa.setBrush(brush);
                         int xcenter =i*dim1;
                         int ycenter =j*dim2;
                         pa.drawEllipse(xcenter,ycenter,dim1,dim2);
