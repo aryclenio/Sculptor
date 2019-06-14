@@ -53,9 +53,10 @@ Sculptor::Sculptor(int xx, int yy, int zz){
 vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
     vector<vector<Voxel>> m;
     vector<Voxel> l;
-    l.resize(ny);
+
     //fazer ifs de cada plano
     if (pl == XY){
+        l.resize(ny);
         for(int i = 0; i<nx; i++){
             for(int j = 0; j<ny; j++){
                 l[j].isOn = c[i][j][dim].isOn;
@@ -68,6 +69,7 @@ vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
         }
     }
     if (pl == YZ){
+        l.resize(nz);
         for(int i = 0; i<nx; i++){
             for(int j = 0; j<ny; j++){
                 l[j].isOn = c[i][j][dim].isOn;
@@ -81,6 +83,7 @@ vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
     }
 
     if (pl == ZX){
+        l.resize(nx);
         for(int i = 0; i<nx; i++){
             for(int j = 0; j<ny; j++){
                 l[j].isOn = c[i][j][dim].isOn;
@@ -92,6 +95,7 @@ vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
             m.push_back(l);
         }
     }
+    l.clear();
     return m;
 }
 

@@ -19,9 +19,9 @@ public:
     ~MainWindow();
 
 public slots:
-    void changePlane1(); //XY
-    void changePlane2(); //XZ
-    void changePlane3(); //YZ
+    void changeXY();
+    void changeYZ();
+    void changeZX();
     void pVoxel(); //PV
     void cVoxel(); //CV
     void pBox(); //PB

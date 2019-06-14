@@ -8,22 +8,17 @@
 #include <QDebug>
 Painter::Painter(QWidget *parent) : QWidget(parent)
 {
-    sx = 10; sy = 10; sz=10;    //Será setado por dialogBox
+    sx = 10; sy = 10; sz=10;
     s = new Sculptor(sx,sy,sz);
 
-        dim=5; pl=XY;   //setado por slider e botoes
-        p = s->readMx(dim,pl);
-
-        sx=0; sy=0; sz=0; rad=0; rx=0;ry=0;rz=0;
+        dim=0; pl=XY;
+        x=0; y=0; z=0; rad=0; rx=0;ry=0;rz=0;
 
         r = 0; g=0; b=0; a = 255;
 
         sh=1;
-    setMouseTracking(true);
 }
-void Painter::recMx(vector<vector<Voxel>> m){
 
-}
 void Painter::paintEvent(QPaintEvent *event)
 {
     QPainter pa(this);
@@ -37,8 +32,8 @@ void Painter::paintEvent(QPaintEvent *event)
     brush.setStyle(Qt::SolidPattern);
       // entregando o pincel ao pintor
     pa.setBrush(brush);
-        p = s->readMx(dim,pl);
-
+    p.clear();
+    p = s->readMx(dim,pl);
     int dim1 = width()/p[0].size();
     int dim2 = height()/p.size();
     w = dim1;
@@ -57,12 +52,14 @@ void Painter::paintEvent(QPaintEvent *event)
                     brush.setColor(QColor(p[i][j].r,p[i][j].g,p[i][j].b,p[i][j].a));
                     brush.setStyle(Qt::SolidPattern);
                     pa.setBrush(brush);
-                        int xcenter =i*dim1;
-                        int ycenter =j*dim2;
-                        pa.drawEllipse(xcenter,ycenter,dim1,dim2);
+                    qDebug() << p[i][j].r;
+                    int xcenter =i*dim1;
+                    int ycenter =j*dim2;
+                    pa.drawEllipse(xcenter,ycenter,dim1,dim2);
                 }
            }
         }
+
 }
 void Painter::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -74,7 +71,7 @@ void Painter::mousePressEvent(QMouseEvent *event){
   if(event->button() == Qt::LeftButton ){
     emit clickX(event->x());
     emit clickY(event->y());
-      qDebug() <<mx << " " << my;
+    qDebug() <<mx << " " << my;
     press = true;
       mx = (event->x())/w;
       my = (event->y())/h;
@@ -83,23 +80,23 @@ void Painter::mousePressEvent(QMouseEvent *event){
 
       if(pl == XY)
           {
-              x=mx;
-              y=my;
-              z=dim;
+              px=mx;
+              py=my;
+              pz=dim;
           }
 
           else if(pl == YZ)
           {
-              y=mx;
-              z=my;
-              x=dim;
+              py=mx;
+              pz=my;
+              px=dim;
           }
 
           else if(pl== ZX)
           {
-              z=mx;
-              x=my;
-              y=dim;
+              pz=mx;
+              px=my;
+              py=dim;
           }
       Painter::shape(sh);
   }
@@ -111,41 +108,41 @@ void Painter::shape(int sh)
     if(sh == 1) //PutVoxel
     {
        s->setColor(r,g,b,a);   //setada por sliders
-       s->putVoxel(x,y,z);        //setada onde clickado
+       s->putVoxel(px,py,pz);        //setada onde clickado
     }
     if(sh == 2) //CutVoxel
     {
-       s->cutVoxel(x,y,z);
+       s->cutVoxel(px,py,pz);
     }
     if(sh == 3) //PutBox
     {
         s->setColor(r,g,b,a);
-        s->putBox(x,(x+sx),y,(y+sy),z,(z+sz));
+        s->putBox(px,(px+x),py,(py+y),pz,(pz+z));
 
     }
     if(sh == 4) //CutBox
     {
-       s->cutBox(x,(x+sx),y,(y+sy),z,(z+sz));
+       s->cutBox(px,(px+x),py,(py+y),pz,(pz+z));
     }
     if(sh == 5) //PutSphere
     {
         s->setColor(r,g,b,a);
-        s->putSphere(x,y,z,rad);
+        s->putSphere(px,py,pz,rad);
 
     }
     if(sh == 6) //CutSphere
     {
-       s->cutSphere(x,y,z,rad);;
+       s->cutSphere(px,py,pz,rad);;
     }
     if(sh == 7) //PutEllipsoid
     {
         s->setColor(r,g,b,a);
-        s->putEllipsoid(x,y,z,rx,ry,rz);
+        s->putEllipsoid(px,py,pz,rx,ry,rz);
 
     }
     if(sh == 8) //Cut
     {
-       s->cutEllipsoid(x,y,z,rx,ry,rz);
+       s->cutEllipsoid(px,py,pz,rx,ry,rz);
     }
     repaint();
 }
@@ -170,15 +167,15 @@ void Painter::changeAlpha(int alpha)
 
 void Painter::changeDimx(int size)
 {
-    sx=size;
+    x=size;
 }
 void Painter::changeDimy(int size)
 {
-    sy=size;
+    y=size;
 }
 void Painter::changeDimz(int size)
 {
-    sz=size;
+    z=size;
 }
 void Painter::changeRad(int rd)
 {
@@ -198,7 +195,6 @@ void Painter::changeRz(int radz)
 }
 void Painter::changeSlice(int pln)
 {
-    pl = pln;
-    p = s->readMx(dim,pl);
+    dim = pln;
     repaint();
 }
