@@ -5,60 +5,61 @@
 #include <QPen>
 #include <QBrush>
 #include <QMouseEvent>
+#include <QDebug>
 Painter::Painter(QWidget *parent) : QWidget(parent)
 {
-    sx = 10; sy = 10; sz=10;    //Será setado por dialogBox
+    sx = 10; sy = 10; sz=10;
     s = new Sculptor(sx,sy,sz);
 
-        dim=5; pl=1;   //setado por slider e botoes
-        p = s->readMx(dim,pl);
+        dim=0; pl=XY;
+        x=0; y=0; z=0; rad=0; rx=0;ry=0;rz=0;
 
-        sx=0; sy=0; sz=0; rad=0;rx=0;ry=0;rz=0;
-
-        r = 255; g=255; b=255; a = 255;
+        r = 0; g=0; b=0; a = 255;
 
         sh=1;
-    setMouseTracking(true);
 }
-void Painter::recMx(vector<vector<Voxel>> m){
 
-}
 void Painter::paintEvent(QPaintEvent *event)
 {
     QPainter pa(this);
     QPen pen;
     QBrush brush;
     pen.setColor(QColor(0,0,0));
-    pen.setWidth(2);
+    pen.setWidth(1);
       // entregando a caneta ao pintor
     pa.setPen(pen);
     brush.setColor(QColor(255,255,255));
     brush.setStyle(Qt::SolidPattern);
       // entregando o pincel ao pintor
     pa.setBrush(brush);
-
+    p.clear();
+    p = s->readMx(dim,pl);
     int dim1 = width()/p[0].size();
     int dim2 = height()/p.size();
     w = dim1;
     h = dim2;
     for(int i =0; i<width(); i= i+dim1){
         for(int j =0; j<height(); j = j+dim2){
-            pa.drawRect(i,j,dim1, dim2);
+            pa.drawRect(i,j,dim1,dim2);
     }
 }
-    brush.setColor(QColor(r,g,b,a));   //Cor setada por sliders
-    brush.setStyle(Qt::SolidPattern);
-    pa.setBrush(brush);
 
-    for(int i=0; i<p.size();i++){    //trabalhar com iterators pra desenhar voxels ligados
+
+
+    for(int i=0; i<p.size();i++){
            for(int j=0; j<p[0].size();j++){
                 if(p[i][j].isOn){
-                        int xcenter =i*dim1;
-                        int ycenter =j*dim2;
-                        pa.drawEllipse(xcenter,ycenter,dim1,dim2);
+                    brush.setColor(QColor(p[i][j].r,p[i][j].g,p[i][j].b,p[i][j].a));
+                    brush.setStyle(Qt::SolidPattern);
+                    pa.setBrush(brush);
+                    qDebug() << p[i][j].r;
+                    int xcenter =i*dim1;
+                    int ycenter =j*dim2;
+                    pa.drawEllipse(xcenter,ycenter,dim1,dim2);
                 }
            }
         }
+
 }
 void Painter::mouseReleaseEvent(QMouseEvent *event)
 {
@@ -70,6 +71,7 @@ void Painter::mousePressEvent(QMouseEvent *event){
   if(event->button() == Qt::LeftButton ){
     emit clickX(event->x());
     emit clickY(event->y());
+    qDebug() <<mx << " " << my;
     press = true;
       mx = (event->x())/w;
       my = (event->y())/h;
@@ -78,23 +80,23 @@ void Painter::mousePressEvent(QMouseEvent *event){
 
       if(pl == XY)
           {
-              x=my;
-              y=my;
-              z=dim;
+              px=mx;
+              py=my;
+              pz=dim;
           }
 
-          else if(pl == YZ) //XZ
+          else if(pl == YZ)
           {
-              x=my;
-              z=my;
-              y=dim;
+              py=mx;
+              pz=my;
+              px=dim;
           }
 
-          else if(pl== ZX) //YZ
+          else if(pl== ZX)
           {
-              y=my;
-              z=my;
-              x=dim;
+              pz=mx;
+              px=my;
+              py=dim;
           }
       Painter::shape(sh);
   }
@@ -106,43 +108,42 @@ void Painter::shape(int sh)
     if(sh == 1) //PutVoxel
     {
        s->setColor(r,g,b,a);   //setada por sliders
-       s->putVoxel(x,y,z);        //setada onde clickado
+       s->putVoxel(px,py,pz);        //setada onde clickado
     }
     if(sh == 2) //CutVoxel
     {
-       s->cutVoxel(x,y,z);
+       s->cutVoxel(px,py,pz);
     }
     if(sh == 3) //PutBox
     {
         s->setColor(r,g,b,a);
-        s->putBox(x,(x+sx),y,(y+sy),z,(z+sz));
+        s->putBox(px,(px+x),py,(py+y),pz,(pz+z));
 
     }
     if(sh == 4) //CutBox
     {
-       s->cutBox(x,(x+sx),y,(y+sy),z,(z+sz));
+       s->cutBox(px,(px+x),py,(py+y),pz,(pz+z));
     }
     if(sh == 5) //PutSphere
     {
         s->setColor(r,g,b,a);
-        s->putSphere(x,y,z,rad);
+        s->putSphere(px,py,pz,rad);
 
     }
     if(sh == 6) //CutSphere
     {
-       s->cutSphere(x,y,z,rad);;
+       s->cutSphere(px,py,pz,rad);;
     }
     if(sh == 7) //PutEllipsoid
     {
         s->setColor(r,g,b,a);
-        s->putEllipsoid(x,y,z,rx,ry,rz);
+        s->putEllipsoid(px,py,pz,rx,ry,rz);
 
     }
     if(sh == 8) //Cut
     {
-       s->cutEllipsoid(x,y,z,rx,ry,rz);
+       s->cutEllipsoid(px,py,pz,rx,ry,rz);
     }
-    p=s->readMx(dim,pl);
     repaint();
 }
 
@@ -166,15 +167,15 @@ void Painter::changeAlpha(int alpha)
 
 void Painter::changeDimx(int size)
 {
-    sx=size;
+    x=size;
 }
 void Painter::changeDimy(int size)
 {
-    sy=size;
+    y=size;
 }
 void Painter::changeDimz(int size)
 {
-    sz=size;
+    z=size;
 }
 void Painter::changeRad(int rd)
 {
@@ -194,7 +195,6 @@ void Painter::changeRz(int radz)
 }
 void Painter::changeSlice(int pln)
 {
-    pl = pln;
-    p = s->readMx(dim,pl);
+    dim = pln;
     repaint();
 }

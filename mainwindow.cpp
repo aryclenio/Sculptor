@@ -7,64 +7,122 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    Sculptor *s;
-    s = new Sculptor(10,10,10);
-    m = s->readMx();
-    ui->widget->recMx(m);
     ui->setupUi(this);
-
+    ui->redSlider->setMaximum(255);
+    ui->BlueSlider->setMaximum(255);
+    ui->greenSlider->setMaximum(255);
+    ui->aSlider->setMaximum(255);
+    ui->sliderX->setMaximum(ui->widget->sx-1);
+    ui->sliderY->setMaximum(ui->widget->sy-1);
+    ui->sliderZ->setMaximum(ui->widget->sz-1);
+    ui->sliderSlice->setMaximum(ui->widget->sz -1);
+    connect(ui->sliderSlice,
+                SIGNAL(valueChanged(int)),
+                ui->widget,
+                SLOT(changeSlice(int)));
     connect(ui->putVoxel,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(1)));
+              SLOT(pVoxel()));
     connect(ui->cutVoxel,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(2)));
+              SLOT(cVoxel()));
     connect(ui->putBox,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(3)));
+              SLOT(pBox()));
     connect(ui->cutBox,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(4)));
+              SLOT(cBox()));
     connect(ui->putEllipsoid,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(5)));
+              SLOT(pShpere()));
     connect(ui->cutEllipsoid,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(6)));
+              SLOT(cShpere()));
     connect(ui->putSphere,
               SIGNAL(clicked(bool)),
               this,
-              SLOT(shape(7)));
+              SLOT(pEllip()));
     connect(ui->cutSphere,
               SIGNAL(clicked(bool)),
-              this,
-              SLOT(shape(8)));
+              this, //esta this porque eu estou falando da mainwindow
+              SLOT(cEllip()));
+    connect(ui->redSlider,
+              SIGNAL(valueChanged(int)),
+              ui->widget, //aqui é onde eu vou mandar
+              SLOT(changeRed(int)));
+    connect(ui->BlueSlider,
+              SIGNAL(valueChanged(int)),
+              ui->widget,
+              SLOT(changeBlue(int)));
+    connect(ui->greenSlider,
+              SIGNAL(valueChanged(int)),
+              ui->widget,
+              SLOT(changeGreen(int)));
+    connect(ui->aSlider,
+              SIGNAL(valueChanged(int)),
+              ui->widget,
+              SLOT(changeAlpha(int)));
+    connect(ui->sliderX,
+                SIGNAL(valueChanged(int)),
+                ui->widget,
+                SLOT(changeDimx(int)));
+    connect(ui->sliderY,
+                SIGNAL(valueChanged(int)),
+                ui->widget,
+                SLOT(changeDimy(int)));
+    connect(ui->sliderZ,
+                SIGNAL(valueChanged(int)),
+                ui->widget,
+                SLOT(changeDimz(int)));
+    connect(ui->btXY,
+               SIGNAL(clicked(bool)),
+               this,
+               SLOT(changeXY()));
+
+       connect(ui->btYZ,
+               SIGNAL(clicked(bool)),
+               this,
+               SLOT(changeYZ()));
+
+       connect(ui->btZX,
+               SIGNAL(clicked(bool)),
+               this,
+               SLOT(changeZX()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::changePlane1() //XY
+void MainWindow::changeXY() //XY
 {
-    ui->widget->pl = 1;
-    emit ui->widget->planeChosen(1);
+    ui->widget->pl = XY;
+    emit ui->widget->planeChosen(XY);
+    ui->widget->dim = ui->widget->sz/2;
+    ui->sliderSlice->setMaximum(ui->widget->sz -1);
+    ui->widget->repaint();
 }
-void MainWindow::changePlane2() //XZ
+void MainWindow::changeYZ() //YZ
 {
-    ui->widget->pl = 2;
-    emit ui->widget->planeChosen(2);
+    ui->widget->pl = YZ;
+    emit ui->widget->planeChosen(YZ);
+    ui->widget->dim = ui->widget->sx/2;
+    ui->sliderSlice->setMaximum(ui->widget->sx -1);
+    ui->widget->repaint();
 }
-void MainWindow::changePlane3() //YZ
+void MainWindow::changeZX()
 {
-    ui->widget->pl = 3;
-    emit ui->widget->planeChosen(3);
+    ui->widget->pl = ZX;
+    emit ui->widget->planeChosen(ZX);
+    ui->widget->dim = ui->widget->sy/2;
+    ui->sliderSlice->setMaximum(ui->widget->sy -1);
+    ui->widget->repaint();
 }
 
 void MainWindow::pVoxel() //PV
