@@ -30,6 +30,7 @@ private:
     QColor lineColor;
     int cor;
     QAction *actionMudaCor;
+    int cube;
     int px, py, pz; //posições setadas pelas funções em sculptor
     bool press; //Identifica o pressionamento ou soltura do mouse.
     int mx, my; //Captura o movimento do mouse em abmas coordenadas.

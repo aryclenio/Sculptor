@@ -15,85 +15,105 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->sliderX->setMaximum(ui->widget->sx-1);
     ui->sliderY->setMaximum(ui->widget->sy-1);
     ui->sliderZ->setMaximum(ui->widget->sz-1);
+    ui->sphereSlider->setMaximum(ui->widget->sx/2 -1);
+    ui->xSlider->setMaximum(ui->widget->sx/2 -1);
+    ui->ySlider->setMaximum(ui->widget->sy/2 -1);
+    ui->zSlider->setMaximum(ui->widget->sz/2 -1);
     ui->sliderSlice->setMaximum(ui->widget->sz -1);
     connect(ui->sliderSlice,
-                SIGNAL(valueChanged(int)),
-                ui->widget,
-                SLOT(changeSlice(int)));
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeSlice(int)));
     connect(ui->putVoxel,
-              SIGNAL(clicked(bool)),
-              this,
-              SLOT(pVoxel()));
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(pVoxel()));
     connect(ui->cutVoxel,
-              SIGNAL(clicked(bool)),
-              this,
-              SLOT(cVoxel()));
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(cVoxel()));
     connect(ui->putBox,
-              SIGNAL(clicked(bool)),
-              this,
-              SLOT(pBox()));
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(pBox()));
     connect(ui->cutBox,
-              SIGNAL(clicked(bool)),
-              this,
-              SLOT(cBox()));
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(cBox()));
     connect(ui->putEllipsoid,
-              SIGNAL(clicked(bool)),
-              this,
-              SLOT(pShpere()));
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(pShpere()));
     connect(ui->cutEllipsoid,
-              SIGNAL(clicked(bool)),
-              this,
-              SLOT(cShpere()));
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(cShpere()));
     connect(ui->putSphere,
-              SIGNAL(clicked(bool)),
-              this,
-              SLOT(pEllip()));
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(pEllip()));
     connect(ui->cutSphere,
-              SIGNAL(clicked(bool)),
-              this, //esta this porque eu estou falando da mainwindow
-              SLOT(cEllip()));
+            SIGNAL(clicked(bool)),
+            this, //esta this porque eu estou falando da mainwindow
+            SLOT(cEllip()));
     connect(ui->redSlider,
-              SIGNAL(valueChanged(int)),
-              ui->widget, //aqui é onde eu vou mandar
-              SLOT(changeRed(int)));
+            SIGNAL(valueChanged(int)),
+            ui->widget, //aqui é onde eu vou mandar
+            SLOT(changeRed(int)));
     connect(ui->BlueSlider,
-              SIGNAL(valueChanged(int)),
-              ui->widget,
-              SLOT(changeBlue(int)));
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeBlue(int)));
     connect(ui->greenSlider,
-              SIGNAL(valueChanged(int)),
-              ui->widget,
-              SLOT(changeGreen(int)));
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeGreen(int)));
     connect(ui->aSlider,
-              SIGNAL(valueChanged(int)),
-              ui->widget,
-              SLOT(changeAlpha(int)));
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeAlpha(int)));
     connect(ui->sliderX,
-                SIGNAL(valueChanged(int)),
-                ui->widget,
-                SLOT(changeDimx(int)));
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeDimx(int)));
     connect(ui->sliderY,
-                SIGNAL(valueChanged(int)),
-                ui->widget,
-                SLOT(changeDimy(int)));
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeDimy(int)));
     connect(ui->sliderZ,
-                SIGNAL(valueChanged(int)),
-                ui->widget,
-                SLOT(changeDimz(int)));
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeDimz(int)));
+    connect(ui->sphereSlider,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRad(int)));
+    connect(ui->xSlider,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRx(int)));
+    connect(ui->ySlider,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRy(int)));
+    connect(ui->zSlider,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRz(int)));
     connect(ui->btXY,
-               SIGNAL(clicked(bool)),
-               this,
-               SLOT(changeXY()));
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(changeXY()));
 
-       connect(ui->btYZ,
-               SIGNAL(clicked(bool)),
-               this,
-               SLOT(changeYZ()));
+    connect(ui->btYZ,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(changeYZ()));
 
-       connect(ui->btZX,
-               SIGNAL(clicked(bool)),
-               this,
-               SLOT(changeZX()));
+    connect(ui->btZX,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(changeZX()));
 }
 
 MainWindow::~MainWindow()

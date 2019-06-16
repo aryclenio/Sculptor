@@ -53,8 +53,6 @@ Sculptor::Sculptor(int xx, int yy, int zz){
 vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
     vector<vector<Voxel>> m;
     vector<Voxel> l;
-
-    //fazer ifs de cada plano
     if (pl == XY){
         l.resize(ny);
         for(int i = 0; i<nx; i++){
@@ -70,13 +68,13 @@ vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
     }
     if (pl == YZ){
         l.resize(nz);
-        for(int i = 0; i<nx; i++){
-            for(int j = 0; j<ny; j++){
-                l[j].isOn = c[i][j][dim].isOn;
-                l[j].r = c[i][j][dim].r;
-                l[j].g = c[i][j][dim].g;
-                l[j].b = c[i][j][dim].b;
-                l[j].a = c[i][j][dim].a;
+        for(int i = 0; i<ny; i++){
+            for(int j = 0; j<nz; j++){
+                l[j].isOn = c[dim][i][j].isOn;
+                l[j].r = c[dim][i][j].r;
+                l[j].g = c[dim][i][j].g;
+                l[j].b = c[dim][i][j].b;
+                l[j].a = c[dim][i][j].a;
             }
             m.push_back(l);
         }
@@ -84,13 +82,13 @@ vector<vector<Voxel>> Sculptor::readMx(int dim, int pl){
 
     if (pl == ZX){
         l.resize(nx);
-        for(int i = 0; i<nx; i++){
-            for(int j = 0; j<ny; j++){
-                l[j].isOn = c[i][j][dim].isOn;
-                l[j].r = c[i][j][dim].r;
-                l[j].g = c[i][j][dim].g;
-                l[j].b = c[i][j][dim].b;
-                l[j].a = c[i][j][dim].a;
+        for(int i = 0; i<nz; i++){
+            for(int j = 0; j<nx; j++){
+                l[j].isOn = c[j][dim][i].isOn;
+                l[j].r = c[j][dim][i].r;
+                l[j].g = c[j][dim][i].g;
+                l[j].b = c[j][dim][i].b;
+                l[j].a = c[j][dim][i].a;
             }
             m.push_back(l);
         }

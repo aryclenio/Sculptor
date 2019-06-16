@@ -26,16 +26,15 @@ void Painter::paintEvent(QPaintEvent *event)
     QBrush brush;
     pen.setColor(QColor(0,0,0));
     pen.setWidth(1);
-      // entregando a caneta ao pintor
     pa.setPen(pen);
     brush.setColor(QColor(255,255,255));
     brush.setStyle(Qt::SolidPattern);
-      // entregando o pincel ao pintor
     pa.setBrush(brush);
     p.clear();
     p = s->readMx(dim,pl);
     int dim1 = width()/p[0].size();
     int dim2 = height()/p.size();
+
     w = dim1;
     h = dim2;
     for(int i =0; i<width(); i= i+dim1){
@@ -52,7 +51,7 @@ void Painter::paintEvent(QPaintEvent *event)
                     brush.setColor(QColor(p[i][j].r,p[i][j].g,p[i][j].b,p[i][j].a));
                     brush.setStyle(Qt::SolidPattern);
                     pa.setBrush(brush);
-                    qDebug() << p[i][j].r;
+                    qDebug() << p[i][j].r <<p[i][j].g <<p[i][j].b;
                     int xcenter =i*dim1;
                     int ycenter =j*dim2;
                     pa.drawEllipse(xcenter,ycenter,dim1,dim2);
@@ -71,7 +70,6 @@ void Painter::mousePressEvent(QMouseEvent *event){
   if(event->button() == Qt::LeftButton ){
     emit clickX(event->x());
     emit clickY(event->y());
-    qDebug() <<mx << " " << my;
     press = true;
       mx = (event->x())/w;
       my = (event->y())/h;
@@ -103,44 +101,42 @@ void Painter::mousePressEvent(QMouseEvent *event){
 }
 void Painter::shape(int sh)
 {
-
-    //if pra cada plane...
-    if(sh == 1) //PutVoxel
+    if(sh == 1)
     {
-       s->setColor(r,g,b,a);   //setada por sliders
-       s->putVoxel(px,py,pz);        //setada onde clickado
+       s->setColor(r,g,b,a);
+       s->putVoxel(px,py,pz);
     }
-    if(sh == 2) //CutVoxel
+    if(sh == 2)
     {
        s->cutVoxel(px,py,pz);
     }
-    if(sh == 3) //PutBox
+    if(sh == 3)
     {
         s->setColor(r,g,b,a);
         s->putBox(px,(px+x),py,(py+y),pz,(pz+z));
 
     }
-    if(sh == 4) //CutBox
+    if(sh == 4)
     {
        s->cutBox(px,(px+x),py,(py+y),pz,(pz+z));
     }
-    if(sh == 5) //PutSphere
+    if(sh == 5)
     {
         s->setColor(r,g,b,a);
         s->putSphere(px,py,pz,rad);
 
     }
-    if(sh == 6) //CutSphere
+    if(sh == 6)
     {
        s->cutSphere(px,py,pz,rad);;
     }
-    if(sh == 7) //PutEllipsoid
+    if(sh == 7)
     {
         s->setColor(r,g,b,a);
         s->putEllipsoid(px,py,pz,rx,ry,rz);
 
     }
-    if(sh == 8) //Cut
+    if(sh == 8)
     {
        s->cutEllipsoid(px,py,pz,rx,ry,rz);
     }
@@ -179,7 +175,7 @@ void Painter::changeDimz(int size)
 }
 void Painter::changeRad(int rd)
 {
-    r=rd;
+    rad=rd;
 }
 void Painter::changeRx(int radx)
 {
