@@ -15,11 +15,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
 		sculptor.cpp \
-    painter.cpp
+    painter.cpp \
+    setsize.cpp
 		
 
 HEADERS  += mainwindow.h \
 			sculptor.h \
-    painter.h
+    painter.h \
+    setsize.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    setsize.ui

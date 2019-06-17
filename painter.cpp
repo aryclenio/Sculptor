@@ -6,11 +6,11 @@
 #include <QBrush>
 #include <QMouseEvent>
 #include <QDebug>
+#include <QColor>
 Painter::Painter(QWidget *parent) : QWidget(parent)
 {
     sx = 10; sy = 10; sz=10;
     s = new Sculptor(sx,sy,sz);
-
         dim=0; pl=XY;
         x=0; y=0; z=0; rad=0; rx=0;ry=0;rz=0;
 
@@ -42,8 +42,6 @@ void Painter::paintEvent(QPaintEvent *event)
             pa.drawRect(i,j,dim1,dim2);
     }
 }
-
-
 
     for(int i=0; i<p.size();i++){
            for(int j=0; j<p[0].size();j++){

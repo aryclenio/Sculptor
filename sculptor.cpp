@@ -108,10 +108,10 @@ Sculptor::~Sculptor(){
 }
 
 void Sculptor::setColor(float r, float g, float b, float alpha){
-    if(r >1){rp = 1;}else if(r <0){rp = 0;}else{rp = r;}
-    if(g >1){gp = 1;}else if(g <0){gp = 0;}else{gp = g;}
-    if(b >1){bp = 1;}else if(b <0){bp = 0;}else{bp = b;}
-    if(alpha >1){ap = 1;}else if(alpha <0){ap = 0;}else{ap = alpha;}
+    rp = r;
+    gp = g;
+    bp = b;
+    ap = alpha;
 }
 
 void Sculptor::putVoxel(int x, int y, int z){
