@@ -30,6 +30,7 @@ public slots:
     void cShpere(); //CS
     void pEllip(); //PE
     void cEllip(); //PS
+    void selectPlane();
 
 private:
     Ui::MainWindow *ui;

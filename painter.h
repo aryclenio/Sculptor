@@ -53,6 +53,8 @@ public slots:
     void changeBlue(int blue);
     void changeAlpha(int alpha);
     void changeSlice(int pln);
+    void Vect();
+    void Off();
 };
 
 #endif // PAINTER_H

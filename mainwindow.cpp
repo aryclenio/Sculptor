@@ -114,11 +114,38 @@ MainWindow::MainWindow(QWidget *parent) :
             SIGNAL(clicked(bool)),
             this,
             SLOT(changeZX()));
+    connect(ui->actionExport_off_File,
+            SIGNAL(triggered(bool)),
+            ui->widget,
+            SLOT(Off()));
+    connect(ui->actionExport_vect_File,
+            SIGNAL(triggered(bool)),
+            ui->widget,
+            SLOT(Vect()));
+    connect(ui->actionCreate_Plane,
+            SIGNAL(triggered(bool)),
+            this,
+            SLOT(selectPlane()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+void MainWindow::selectPlane(){
+      QString msg;
+      DialogRgb dialog;
+
+      if(dialog.exec() == QDialog::Accepted){
+        msg = "r = <b>"+QString::number(dialog.getR())+
+            "</b> <br>"+
+            "g = <b>"+QString::number(dialog.getG())+
+            "</b> <br>"+
+            "b = <b>"+QString::number(dialog.getB())+
+            "</b>";
+        box.setText(msg);
+        box.exec();
+      }
 }
 void MainWindow::changeXY() //XY
 {

@@ -14,12 +14,17 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
+    planedialog.cpp \
 		sculptor.cpp \
-    painter.cpp
+    painter.cpp \
+    setsize.cpp
 		
 
 HEADERS  += mainwindow.h \
+    planedialog.h \
 			sculptor.h \
-    painter.h
+    painter.h \
+    setsize.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    planedialog.ui
