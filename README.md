@@ -1,17 +1,18 @@
 # Sculptor drawer
   A sculptor that draws geometric figures in individual voxels (3d Pixels) and imports the figure to a .off or .vect format, readeable by geomview or meshlab. The image above shows the main window of the software. The square in the middle-left is the main matrix, known as our canvas. You can draw anything that you could imagine with it, painting small cubes in the combination of collors that you want.
   <img src="https://user-images.githubusercontent.com/31252524/59954220-05654080-945a-11e9-87ad-d1d1bcd4074c.png">
+  <br>
   The Sculptor have 8 main funcionalities:
  <br>
  <ul>
- <li><b>Put Voxel<b>: Paint a small cube, at the size of 1x1 in the main canvas.</li> 
- <li><b>Put Box<b>: Paint a box, at the size that was set in the middle-right sliders in the main canvas.</li> 
- <li><b>Put Sphere<b>: Paint a sphere, at the size that was set in the bottom-right sliders in the main canvas.</li>
- <li><b>Put Ellipsoid<b>: Paint an ellipsoid, at the size that was set in the bottom-right sliders in the main canvas.</li> 
- <li><b>Cut Voxel<b>: Erases a small cube, at the size of 1x1 in the main canvas.</li> 
- <li><b>Cut Box<b>: Erases a box, at the size that was set in the middle right sliders in the main canvas.</li> 
- <li><b>Cut Sphere<b>: Erases a sphere, at the size that was set in the bottom-right sliders in the main canvas.</li>
- <li><b>Cut Ellipsoid<b>: Erases an ellipsoid, at the size that was set in the bottom-right sliders in the main canvas.</li>
+   <li><b>Put Voxel<b>: Paint a small cube, at the size of 1x1 in the main canvas.</li> 
+   <li><b>Put Box<b>: Paint a box, at the size that was set in the middle-right sliders in the main canvas.</li> 
+   <li><b>Put Sphere<b>: Paint a sphere, at the size that was set in the bottom-right sliders in the main canvas.</li>
+   <li><b>Put Ellipsoid<b>: Paint an ellipsoid, at the size that was set in the bottom-right sliders in the main canvas.</li> 
+   <li><b>Cut Voxel<b>: Erases a small cube, at the size of 1x1 in the main canvas.</li> 
+   <li><b>Cut Box<b>: Erases a box, at the size that was set in the middle right sliders in the main canvas.</li> 
+   <li><b>Cut Sphere<b>: Erases a sphere, at the size that was set in the bottom-right sliders in the main canvas.</li>
+   <li><b>Cut Ellipsoid<b>: Erases an ellipsoid, at the size that was set in the bottom-right sliders in the main canvas.</li>
  </ul>
    <br>
 <p>All of these functions works just by clicking the mouse at the canvas, neddeing only to sellect witch one of the functions will take place.
