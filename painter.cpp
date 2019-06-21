@@ -196,5 +196,5 @@ void Painter::Vect(){
     s->writeVECT("C:/Users/ARY/Documents/GitHub/Sculptor/sculptor.vect");
 }
 void Painter::Off(){
-    s->writeOFF("C:/Users/ARY/Documents/GitHub/Sculptor/sculptor.off");
+    s->writeOFF("C:/Users/MatrizD42018/Downloads/Sculptor-master/Sculptor-master/sculptor.off");
 }

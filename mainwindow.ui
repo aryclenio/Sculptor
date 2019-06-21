@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>831</width>
-    <height>563</height>
+    <width>865</width>
+    <height>535</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,9 +28,9 @@
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>280</y>
-      <width>131</width>
-      <height>91</height>
+      <y>370</y>
+      <width>171</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -58,7 +58,7 @@
     <widget class="QRadioButton" name="btYZ">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>40</x>
        <y>40</y>
        <width>82</width>
        <height>17</height>
@@ -71,8 +71,8 @@
     <widget class="QRadioButton" name="btZX">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>60</y>
+       <x>80</x>
+       <y>20</y>
        <width>82</width>
        <height>17</height>
       </rect>
@@ -87,7 +87,7 @@
      <rect>
       <x>430</x>
       <y>20</y>
-      <width>371</width>
+      <width>421</width>
       <height>171</height>
      </rect>
     </property>
@@ -157,13 +157,13 @@
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>190</y>
-      <width>131</width>
-      <height>81</height>
+      <y>250</y>
+      <width>181</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="title">
-     <string>Select Layer</string>
+     <string>Box Size</string>
     </property>
     <layout class="QGridLayout" name="gridLayout_3">
      <item row="0" column="0">
@@ -213,9 +213,9 @@
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>430</x>
       <y>190</y>
-      <width>231</width>
+      <width>421</width>
       <height>51</height>
      </rect>
     </property>
@@ -235,10 +235,10 @@
    <widget class="QGroupBox" name="groupBox_7">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>710</x>
       <y>250</y>
       <width>141</width>
-      <height>211</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="title">
@@ -292,10 +292,10 @@
    <widget class="QGroupBox" name="groupBox_6">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>620</x>
       <y>250</y>
       <width>81</width>
-      <height>211</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="title">
@@ -318,13 +318,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>470</y>
-      <width>684</width>
-      <height>26</height>
+      <x>11</x>
+      <y>448</y>
+      <width>431</width>
+      <height>31</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_4">
@@ -334,8 +334,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>Images/putvoxel.png</normaloff>Images/putvoxel.png</iconset>
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/putvoxel.png</normaloff>:/Images/Images/putvoxel.png</iconset>
        </property>
       </widget>
      </item>
@@ -345,8 +345,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>Images/cutvoxel.png</normaloff>Images/cutvoxel.png</iconset>
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/cutvoxel.png</normaloff>:/Images/Images/cutvoxel.png</iconset>
        </property>
       </widget>
      </item>
@@ -356,8 +356,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>Images/putbox.png</normaloff>Images/putbox.png</iconset>
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/putbox.png</normaloff>:/Images/Images/putbox.png</iconset>
        </property>
       </widget>
      </item>
@@ -367,8 +367,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>Images/cutbox.png</normaloff>Images/cutbox.png</iconset>
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/cutbox.png</normaloff>:/Images/Images/cutbox.png</iconset>
        </property>
       </widget>
      </item>
@@ -378,8 +378,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>Images/putellipsoid.png</normaloff>Images/putellipsoid.png</iconset>
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/putellipsoid.png</normaloff>:/Images/Images/putellipsoid.png</iconset>
        </property>
       </widget>
      </item>
@@ -389,8 +389,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>Images/cutellipsoid.png</normaloff>Images/cutellipsoid.png</iconset>
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/cutellipsoid.png</normaloff>:/Images/Images/cutellipsoid.png</iconset>
        </property>
       </widget>
      </item>
@@ -400,8 +400,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>Images/putsphere.png</normaloff>Images/putsphere.png</iconset>
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/putsphere.png</normaloff>:/Images/Images/putsphere.png</iconset>
        </property>
       </widget>
      </item>
@@ -411,8 +411,15 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>Images/cutsphere.png</normaloff>Images/cutsphere.png</iconset>
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/cutsphere.png</normaloff>:/Images/Images/cutsphere.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="8">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>MeshLab</string>
        </property>
       </widget>
      </item>
@@ -424,8 +431,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>831</width>
-     <height>20</height>
+     <width>865</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuCreate">
@@ -472,6 +479,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>

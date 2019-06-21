@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "planedialogo.h"
 #include "sculptor.h"
 #include "painter.h"
+#include "QMessageBox"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -133,19 +135,26 @@ MainWindow::~MainWindow()
     delete ui;
 }
 void MainWindow::selectPlane(){
+      QMessageBox box;
       QString msg;
-      DialogRgb dialog;
+      PlaneDialogo dialog;
 
       if(dialog.exec() == QDialog::Accepted){
-        msg = "r = <b>"+QString::number(dialog.getR())+
+        msg = "r = <b>"+QString::number(dialog.getX())+
             "</b> <br>"+
-            "g = <b>"+QString::number(dialog.getG())+
+            "g = <b>"+QString::number(dialog.getY())+
             "</b> <br>"+
-            "b = <b>"+QString::number(dialog.getB())+
+            "b = <b>"+QString::number(dialog.getZ())+
             "</b>";
         box.setText(msg);
         box.exec();
       }
+      ui->widget->s->~Sculptor();
+      ui->widget->sx = dialog.getX();
+      ui->widget->sy = dialog.getY();
+      ui->widget->sz = dialog.getZ();
+      ui->widget->s = new Sculptor(ui->widget->sx,ui->widget->sy,ui->widget->sz);
+      ui->widget->repaint();
 }
 void MainWindow::changeXY() //XY
 {

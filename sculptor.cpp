@@ -115,6 +115,12 @@ void Sculptor::setColor(float r, float g, float b, float alpha){
 }
 
 void Sculptor::putVoxel(int x, int y, int z){
+    if((x>=nx)||(y>=ny) || (z>=nz)){
+        return;
+    }
+    if((x<0)||(y<0) || (z<0)){
+        return;
+    }
     c[x][y][z].isOn = true;
     c[x][y][z].r = rp;
     c[x][y][z].g = gp;

@@ -14,17 +14,18 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    planedialog.cpp \
 		sculptor.cpp \
     painter.cpp \
-    setsize.cpp
+    planedialogo.cpp
 		
 
 HEADERS  += mainwindow.h \
-    planedialog.h \
 			sculptor.h \
     painter.h \
-    setsize.h
+    planedialogo.h
 
 FORMS    += mainwindow.ui \
-    planedialog.ui
+    planedialogo.ui
+
+RESOURCES += \
+    images.qrc
