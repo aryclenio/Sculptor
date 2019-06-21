@@ -31,3 +31,6 @@
   <br>
   The software let you export the draw in two different types of files, a .OFF or a .VECT files, readeable by Meshlab (on Windows) or GeomView (on Linux) and offers a live view of the matrix in the last buttom, creating an instance of one of this programs, loading the file simultaniously.
 
+## Code Status
+
+[![Build Status](https://badge.buildkite.com/ab1152b6a1f6a61d3ea4ec5b3eece8d4c2b830998459c75352.svg?branch=master)](https://buildkite.com/rails/rails)
