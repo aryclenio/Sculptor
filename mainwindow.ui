@@ -322,65 +322,97 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>480</y>
-      <width>644</width>
-      <height>25</height>
+      <y>470</y>
+      <width>684</width>
+      <height>26</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="0" column="0">
       <widget class="QPushButton" name="putVoxel">
        <property name="text">
-        <string>PutVoxel</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/putvoxel.png</normaloff>Images/putvoxel.png</iconset>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="cutVoxel">
        <property name="text">
-        <string>CutVoxel</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/cutvoxel.png</normaloff>Images/cutvoxel.png</iconset>
        </property>
       </widget>
      </item>
      <item row="0" column="2">
       <widget class="QPushButton" name="putBox">
        <property name="text">
-        <string>PutBox</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/putbox.png</normaloff>Images/putbox.png</iconset>
        </property>
       </widget>
      </item>
      <item row="0" column="3">
       <widget class="QPushButton" name="cutBox">
        <property name="text">
-        <string>CutBox</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/cutbox.png</normaloff>Images/cutbox.png</iconset>
        </property>
       </widget>
      </item>
      <item row="0" column="4">
       <widget class="QPushButton" name="putEllipsoid">
        <property name="text">
-        <string>PutEllipsoid</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/putellipsoid.png</normaloff>Images/putellipsoid.png</iconset>
        </property>
       </widget>
      </item>
      <item row="0" column="5">
       <widget class="QPushButton" name="cutEllipsoid">
        <property name="text">
-        <string>CutEllipsoid</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/cutellipsoid.png</normaloff>Images/cutellipsoid.png</iconset>
        </property>
       </widget>
      </item>
      <item row="0" column="6">
       <widget class="QPushButton" name="putSphere">
        <property name="text">
-        <string>PutSphere</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/putsphere.png</normaloff>Images/putsphere.png</iconset>
        </property>
       </widget>
      </item>
      <item row="0" column="7">
       <widget class="QPushButton" name="cutSphere">
        <property name="text">
-        <string>CutSphere</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Images/cutsphere.png</normaloff>Images/cutsphere.png</iconset>
        </property>
       </widget>
      </item>
@@ -393,7 +425,7 @@
      <x>0</x>
      <y>0</y>
      <width>831</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuCreate">
