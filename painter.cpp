@@ -7,6 +7,7 @@
 #include <QMouseEvent>
 #include <QDebug>
 #include <QColor>
+#include "QMessageBox"
 Painter::Painter(QWidget *parent) : QWidget(parent)
 {
     sx = 10; sy = 10; sz=10;
@@ -193,8 +194,19 @@ void Painter::changeSlice(int pln)
     repaint();
 }
 void Painter::Vect(){
+    QMessageBox box;
+    QString msg;
     s->writeVECT("C:/Users/ARY/Documents/GitHub/Sculptor/sculptor.vect");
+    msg = "VECT file generated Sucessfully";
+    box.setText(msg);
+    box.exec();
 }
 void Painter::Off(){
     s->writeOFF("C:/Users/MatrizD42018/Downloads/Sculptor-master/Sculptor-master/sculptor.off");
+    QMessageBox box;
+    QString msg;
+    s->writeVECT("C:/Users/ARY/Documents/GitHub/Sculptor/sculptor.vect");
+    msg = "OFF file generated Sucessfully";
+    box.setText(msg);
+    box.exec();
 }

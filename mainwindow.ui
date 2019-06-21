@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>865</width>
-    <height>535</height>
+    <width>812</width>
+    <height>636</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,18 +19,18 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>411</width>
-      <height>401</height>
+      <width>471</width>
+      <height>461</height>
      </rect>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>370</y>
-      <width>171</width>
-      <height>61</height>
+      <x>490</x>
+      <y>190</y>
+      <width>111</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="title">
@@ -42,53 +42,37 @@
     <property name="checkable">
      <bool>false</bool>
     </property>
-    <widget class="QRadioButton" name="btXY">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>82</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Plane X//Y</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="btYZ">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>40</y>
-       <width>82</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Plane Y//Z</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="btZX">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>20</y>
-       <width>82</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Plane Z//X</string>
-     </property>
-    </widget>
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="2" column="0">
+      <widget class="QRadioButton" name="btZX">
+       <property name="text">
+        <string>Plane Z//X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QRadioButton" name="btXY">
+       <property name="text">
+        <string>Plane X//Y</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QRadioButton" name="btYZ">
+       <property name="text">
+        <string>Plane Y//Z</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>490</x>
       <y>20</y>
-      <width>421</width>
-      <height>171</height>
+      <width>291</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
@@ -156,10 +140,10 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>250</y>
+      <x>600</x>
+      <y>190</y>
       <width>181</width>
-      <height>121</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="title">
@@ -213,9 +197,9 @@
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>190</y>
-      <width>421</width>
+      <x>10</x>
+      <y>480</y>
+      <width>471</width>
       <height>51</height>
      </rect>
     </property>
@@ -235,16 +219,23 @@
    <widget class="QGroupBox" name="groupBox_7">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>250</y>
-      <width>141</width>
-      <height>221</height>
+      <x>630</x>
+      <y>330</y>
+      <width>151</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="title">
      <string>Ellipsoid Radius</string>
     </property>
     <layout class="QGridLayout" name="gridLayout_6">
+     <item row="0" column="2">
+      <widget class="QSlider" name="zSlider">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="0">
       <widget class="QSlider" name="xSlider">
        <property name="orientation">
@@ -252,17 +243,10 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QSlider" name="ySlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QSlider" name="zSlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Z</string>
        </property>
       </widget>
      </item>
@@ -280,10 +264,10 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="label_10">
-       <property name="text">
-        <string>Z</string>
+     <item row="0" column="1">
+      <widget class="QSlider" name="ySlider">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
@@ -292,10 +276,10 @@
    <widget class="QGroupBox" name="groupBox_6">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>250</y>
-      <width>81</width>
-      <height>221</height>
+      <x>490</x>
+      <y>330</y>
+      <width>131</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="title">
@@ -318,11 +302,11 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>448</y>
+      <x>10</x>
+      <y>540</y>
       <width>431</width>
       <height>31</height>
      </rect>
@@ -431,7 +415,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>865</width>
+     <width>812</width>
      <height>21</height>
     </rect>
    </property>

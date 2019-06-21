@@ -140,11 +140,11 @@ void MainWindow::selectPlane(){
       PlaneDialogo dialog;
 
       if(dialog.exec() == QDialog::Accepted){
-        msg = "r = <b>"+QString::number(dialog.getX())+
+        msg = "X = <b>"+QString::number(dialog.getX())+
             "</b> <br>"+
-            "g = <b>"+QString::number(dialog.getY())+
+            "Y = <b>"+QString::number(dialog.getY())+
             "</b> <br>"+
-            "b = <b>"+QString::number(dialog.getZ())+
+            "Z = <b>"+QString::number(dialog.getZ())+
             "</b>";
         box.setText(msg);
         box.exec();
