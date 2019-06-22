@@ -34,3 +34,18 @@
 ## Code Status
 
 [![Build Status](https://badge.buildkite.com/ab1152b6a1f6a61d3ea4ec5b3eece8d4c2b830998459c75352.svg?branch=master)](https://buildkite.com/rails/rails)
+
+### Colaborators
+<hr>
+<table>
+  <tr>
+    <td align="center">
+      <a href="http://github.com/aryclenio">
+        <img src="https://avatars.githubusercontent.com/aryclenio" width="100px;" alt="Aryclenio Xavier"/>
+        <br />
+        <sub><b>Aryclenio Xavier</b></sub>
+      </a><br />
+      <a href="https://github.com/aryclenio/Sculptor/commits?author=aryclenio" title="Code">💻</a>
+    </td>
+  </tr>
+</table>
