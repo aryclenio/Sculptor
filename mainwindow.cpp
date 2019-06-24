@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->redSlider->setMinimum(10);
+    ui->BlueSlider->setMinimum(10);
+    ui->greenSlider->setMinimum(10);
     ui->redSlider->setMaximum(255);
     ui->BlueSlider->setMaximum(255);
     ui->greenSlider->setMaximum(255);

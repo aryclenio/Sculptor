@@ -15,7 +15,7 @@ Painter::Painter(QWidget *parent) : QWidget(parent)
         dim=0; pl=XY;
         x=0; y=0; z=0; rad=0; rx=0;ry=0;rz=0;
 
-        r = 0; g=0; b=0; a = 255;
+        r = 10; g=10; b=10; a = 255;
 
         sh=1;
 }
@@ -35,25 +35,23 @@ void Painter::paintEvent(QPaintEvent *event)
     p = s->readMx(dim,pl);
     int dim1 = width()/p[0].size();
     int dim2 = height()/p.size();
-
+    (dim1>=dim2) ? square=dim2 : square=dim1;
     w = dim1;
     h = dim2;
-    for(int i =0; i<width(); i= i+dim1){
-        for(int j =0; j<height(); j = j+dim2){
-            pa.drawRect(i,j,dim1,dim2);
+    for(unsigned int i =0; i<p.size(); i++){
+           for(unsigned int j =0; j<p[0].size(); j++){
+            pa.drawRect(i*square,j*square,square, square);
     }
 }
 
-    for(int i=0; i<p.size();i++){
-           for(int j=0; j<p[0].size();j++){
+    for(unsigned int i=0; i<p.size();i++){    //trabalhar com iterators pra desenhar voxels ligados
+           for(unsigned int j=0; j<p[0].size();j++){
                 if(p[i][j].isOn){
-                    brush.setColor(QColor(p[i][j].r,p[i][j].g,p[i][j].b,p[i][j].a));
                     brush.setStyle(Qt::SolidPattern);
+                    brush.setColor(QColor(p[i][j].r,p[i][j].g,p[i][j].b,p[i][j].a));
                     pa.setBrush(brush);
                     qDebug() << p[i][j].r <<p[i][j].g <<p[i][j].b;
-                    int xcenter =i*dim1;
-                    int ycenter =j*dim2;
-                    pa.drawEllipse(xcenter,ycenter,dim1,dim2);
+                    pa.drawRect(i*square,j*square,square, square);
                 }
            }
         }
@@ -70,8 +68,8 @@ void Painter::mousePressEvent(QMouseEvent *event){
     emit clickX(event->x());
     emit clickY(event->y());
     press = true;
-      mx = (event->x())/w;
-      my = (event->y())/h;
+      mx = (event->x())/square;
+      my = (event->y())/square;
     emit moveX(mx);
     emit moveY(my);
 
