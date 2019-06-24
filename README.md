@@ -1,6 +1,7 @@
 # Sculptor drawer
   A sculptor that draws geometric figures in individual voxels (3d Pixels) and imports the figure to a .off or .vect format, readeable by geomview or meshlab. The image above shows the main window of the software. The square in the middle-left is the main matrix, known as our canvas. You can draw anything that you could imagine with it, painting small cubes in the combination of collors that you want.
-  <img src="https://user-images.githubusercontent.com/31252524/59954220-05654080-945a-11e9-87ad-d1d1bcd4074c.png">
+  <br>
+  <img src="https://user-images.githubusercontent.com/31252524/59954220-05654080-945a-11e9-87ad-d1d1bcd4074c.png" width="500px;">
   <br>
   The Sculptor have 8 main funcionalities:
  <br>
@@ -30,7 +31,12 @@
   <img src="https://user-images.githubusercontent.com/31252524/59954785-08adfb80-945d-11e9-88c6-d4aac9796dcb.png">
   <br>
   The software let you export the draw in two different types of files, a .OFF or a .VECT files, readeable by Meshlab (on Windows) or GeomView (on Linux) and offers a live view of the matrix in the last buttom, creating an instance of one of this programs, loading the file simultaniously.
-
+<br>
+View of the draw by program at left, and view by Meshlab, as an instance of the program. 
+  <br>
+<img src="https://user-images.githubusercontent.com/31252524/60046595-25854180-969e-11e9-993a-beff37475885.png" width="400px;">
+<img src="https://user-images.githubusercontent.com/31252524/60046849-ba883a80-969e-11e9-936f-950d5be1dbf7.png" width="400px;">
+ <br>
 ## Code Status
 
 [![Build Status](https://badge.buildkite.com/ab1152b6a1f6a61d3ea4ec5b3eece8d4c2b830998459c75352.svg?branch=master)](https://aryclenio.github.io)
