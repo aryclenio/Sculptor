@@ -401,9 +401,13 @@
       </widget>
      </item>
      <item row="0" column="8">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="MeshLab">
        <property name="text">
-        <string>MeshLab</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/Images/Images/meshlab.png</normaloff>:/Images/Images/meshlab.png</iconset>
        </property>
       </widget>
      </item>

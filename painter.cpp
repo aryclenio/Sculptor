@@ -10,7 +10,7 @@
 #include "QMessageBox"
 Painter::Painter(QWidget *parent) : QWidget(parent)
 {
-    sx = 10; sy = 10; sz=10;
+    sx = 36; sy = 36; sz=36;
     s = new Sculptor(sx,sy,sz);
         dim=0; pl=XY;
         x=0; y=0; z=0; rad=0; rx=0;ry=0;rz=0;
@@ -127,7 +127,7 @@ void Painter::shape(int sh)
     }
     if(sh == 6)
     {
-       s->cutSphere(px,py,pz,rad);;
+       s->cutSphere(px,py,pz,rad);
     }
     if(sh == 7)
     {
@@ -196,16 +196,16 @@ void Painter::changeSlice(int pln)
 void Painter::Vect(){
     QMessageBox box;
     QString msg;
-    s->writeVECT("C:/Users/ARY/Documents/GitHub/Sculptor/sculptor.vect");
+    s->writeVECT("C:/Users/iagop/Desktop/Sculptor-master/Sculptor-master/sculptor.vect");
     msg = "VECT file generated Sucessfully";
     box.setText(msg);
     box.exec();
 }
 void Painter::Off(){
-    s->writeOFF("C:/Users/MatrizD42018/Downloads/Sculptor-master/Sculptor-master/sculptor.off");
+    s->writeOFF("C:/Users/iagop/Desktop/Sculptor-master/Sculptor-master/sculptor.off");
     QMessageBox box;
     QString msg;
-    s->writeVECT("C:/Users/ARY/Documents/GitHub/Sculptor/sculptor.vect");
+    s->writeVECT("C:/Users/iagop/Desktop/Sculptor-master/Sculptor-master/sculptor.vect");
     msg = "OFF file generated Sucessfully";
     box.setText(msg);
     box.exec();

@@ -8,5 +8,6 @@
         <file>Images/putellipsoid.png</file>
         <file>Images/putsphere.png</file>
         <file>Images/putvoxel.png</file>
+        <file>Images/meshlab.png</file>
     </qresource>
 </RCC>

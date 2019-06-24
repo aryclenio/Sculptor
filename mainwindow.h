@@ -31,6 +31,7 @@ public slots:
     void pEllip(); //PE
     void cEllip(); //PS
     void selectPlane();
+    void meshOpen();
 
 private:
     Ui::MainWindow *ui;
