@@ -10,7 +10,7 @@
 #include "QMessageBox"
 Painter::Painter(QWidget *parent) : QWidget(parent)
 {
-    sx = 36; sy = 36; sz=36;
+    sx = 30; sy = 30; sz=30;
     s = new Sculptor(sx,sy,sz);
         dim=0; pl=XY;
         x=0; y=0; z=0; rad=0; rx=0;ry=0;rz=0;

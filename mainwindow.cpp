@@ -49,22 +49,22 @@ MainWindow::MainWindow(QWidget *parent) :
             this,
             SLOT(cBox()));
 
-    connect(ui->putEllipsoid,
+    connect(ui->putSphere,
             SIGNAL(clicked(bool)),
             this,
             SLOT(pShpere()));
 
-    connect(ui->cutEllipsoid,
+    connect(ui->cutSphere,
             SIGNAL(clicked(bool)),
             this,
             SLOT(cShpere()));
 
-    connect(ui->putSphere,
+    connect(ui->putEllipsoid,
             SIGNAL(clicked(bool)),
             this,
             SLOT(pEllip()));
 
-    connect(ui->cutSphere,
+    connect(ui->cutEllipsoid,
             SIGNAL(clicked(bool)),
             this, //esta this porque eu estou falando da mainwindow
             SLOT(cEllip()));
