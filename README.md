@@ -30,13 +30,10 @@
 <img src="https://user-images.githubusercontent.com/31252524/59954610-fd0e0500-945b-11e9-88fa-638c75c44748.png">
     </p>
   <br>
-    <p align="center">
-<img src="https://user-images.githubusercontent.com/31252524/59954680-55450700-945c-11e9-98d0-4dc14361f85a.png">
-  </p>
-  <br>
   You can change the size of the canvas just by using the tollbar and clicking in "Create New Canvas", this will lead you to a new window, witch you can adjust the sliders to change the canvas size.  
   <br>
   <p align="center">
+  <img src="https://user-images.githubusercontent.com/31252524/59954680-55450700-945c-11e9-98d0-4dc14361f85a.png">
   <img src="https://user-images.githubusercontent.com/31252524/59954785-08adfb80-945d-11e9-88c6-d4aac9796dcb.png">
   </p>
   <br>
