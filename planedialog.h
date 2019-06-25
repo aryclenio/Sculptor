@@ -12,10 +12,10 @@ class planeDialog : public QDialog
 
 public:
   explicit planeDialog(QWidget *parent = 0);
-  ~planeDialog();
-  int getX();
-  int getY();
-  int getZ();
+  ~planeDialog(); ///Destructor of the class
+  int getX(); ///Slot to get the value of the X coordinate to create a new canvas.
+  int getY(); ///Slot to get the value of the Y coordinate to create a new canvas.
+  int getZ(); ///Slot to get the value of the Z coordinate to create a new canvas.
 
 private:
   Ui::planeDialog *ui;
