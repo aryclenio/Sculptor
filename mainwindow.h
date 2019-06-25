@@ -19,18 +19,18 @@ public:
     ~MainWindow();
 
 public slots:
-    void changeXY();
-    void changeYZ();
-    void changeZX();
-    void pVoxel(); //PV
-    void cVoxel(); //CV
-    void pBox(); //PB
-    void cBox(); //CB
-    void pShpere(); //PS
-    void cShpere(); //CS
-    void pEllip(); //PE
-    void cEllip(); //PS
-    void selectPlane();
+    void changeXY(); ///Slot to change the plane currently ON.
+    void changeYZ(); ///Slot to change the plane currently ON.
+    void changeZX(); ///Slot to change the plane currently ON.
+    void pVoxel(); ///PutVoxel slot, called by the pushbuttom.
+    void cVoxel(); ///CutVoxel slot, called by the pushbuttom.
+    void pBox(); ///PutBox slot, called by the pushbuttom.
+    void cBox(); ///CutBox slot, called by the pushbuttom.
+    void pShpere(); ///PutSphere slot, called by the pushbuttom.
+    void cShpere(); ///CutSphere slot, called by the pushbuttom.
+    void pEllip(); ///PutEllipsoid slot, called by the pushbuttom.
+    void cEllip(); ///CutEllipsoid slot, called by the pushbuttom.
+    void selectPlane(); ///Slot to select a plane
 
 private:
     Ui::MainWindow *ui;
