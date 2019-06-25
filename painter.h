@@ -13,27 +13,27 @@ class Painter : public QWidget
     Q_OBJECT
 public:
     explicit Painter(QWidget *parent = nullptr);
-    void paintEvent(QPaintEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void shape(int sh);
-    Sculptor *s;
-    int sh = 1; //Forma  de desenho, putvoxel default
-    int dim, pl; //Dimensão e plano selecionado, setado em sculptor::readMx
-    int sx, sy, sz; //Medidas do Plano
-    int r, g, b, a; //cores a serem modificadas
-    int rad, rx, ry,rz;
-    int x,y,z; //variaveis que recebem os valores de dimensão, dependendo do formato (XY, YZ, ZX)
-    int h, w; //altura e largura do cubo, segundo o tamanho setado pelo sculptor
+    void paintEvent(QPaintEvent *event); ///An event that draws a matrix of blank cubes and paint then if they are ON. 
+    void mousePressEvent(QMouseEvent *event); ///An event that transforms a click of the mouse as an activator of the isOn property, depending of witch one of the 8 selected actions is activated.
+    void mouseReleaseEvent(QMouseEvent *event); ///An event to take care of actions if the mouse was released
+    void shape(int sh); ///The shape is numerated by one of the 8 actions, witch one will have your behaviour if the mouse is clicked.
+    Sculptor *s; ///The default sculptor that is created when the application was opened for the first time.
+    int sh = 1; ///Shape of the draw, PutVoxel set as default.
+    int dim, pl; ///Plane and Dimention selected by the radioButtom
+    int sx, sy, sz; ///Sculptor size.
+    int r, g, b, a; ///Collors and transparency values.
+    int rad, rx, ry,rz; ///Radius of the sphere and the ellipsoid.
+    int x,y,z; ///Box values.
+    int h, w; ///Size of the 2d matrix of blank squares.
 private:
     vector<vector<Voxel>> p;
     QColor lineColor;
     int cor;
     QAction *actionMudaCor;
     int cube;
-    int px, py, pz; //posições setadas pelas funções em sculptor
-    bool press; //Identifica o pressionamento ou soltura do mouse.
-    int mx, my; //Captura o movimento do mouse em abmas coordenadas.
+    int px, py, pz; ///Position of the click.
+    bool press; ///Mouse is clicked = true.
+    int mx, my; ///Mouse coordinates
 signals:
     void moveX(int);
     void moveY(int);
