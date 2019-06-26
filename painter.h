@@ -13,18 +13,30 @@ class Painter : public QWidget
     Q_OBJECT
 public:
     explicit Painter(QWidget *parent = nullptr);
+    ///An event that draws a matrix of blank cubes and paint then if they are ON.
     void paintEvent(QPaintEvent *event);
+    ///An event that transforms a click of the mouse as an activator of the isOn property, depending of witch one of the 8 selected actions is activated.
     void mousePressEvent(QMouseEvent *event);
+    ///An event to take care of actions if the mouse was released.
     void mouseReleaseEvent(QMouseEvent *event);
+    ///The shape is numerated by one of the 8 actions, witch one will have your behaviour if the mouse is clicked.
     void shape(int sh);
+    ///The default sculptor that is created when the application was opened for the first time.
     Sculptor *s;
-    int sh = 1; //Forma  de desenho, putvoxel default
-    int dim, pl; //Dimensão e plano selecionado, setado em sculptor::readMx
-    int sx, sy, sz; //Medidas do Plano
-    int r, g, b, a; //cores a serem modificadas
+    ///Shape of the draw, PutVoxel set as default.
+    int sh = 1;
+    ///Plane and Dimention selected by the radioButtom.
+    int dim, pl;
+    ///Sculptor size.
+    int sx, sy, sz;
+    ///Collors and transparency values.
+    int r, g, b, a;
+    ///Radius of the sphere and the ellipsoid.
     int rad, rx, ry,rz;
-    int x,y,z; //variaveis que recebem os valores de dimensão, dependendo do formato (XY, YZ, ZX)
-    int h, w; //altura e largura do cubo, segundo o tamanho setado pelo sculptor
+    ///Box values.
+    int x,y,z;
+    ///Size of the 2d matrix of blank squares.
+    int h, w;
 private:
     vector<vector<Voxel>> p;
     QColor lineColor;
@@ -32,9 +44,12 @@ private:
     QAction *actionMudaCor;
     int cube;
     int square;
-    int px, py, pz; //posições setadas pelas funções em sculptor
-    bool press; //Identifica o pressionamento ou soltura do mouse.
-    int mx, my; //Captura o movimento do mouse em abmas coordenadas.
+    ///Position of the click.
+    int px, py, pz;
+    ///Mouse is clicked = true.
+    bool press;
+    ///Mouse coordinates.
+    int mx, my;
 signals:
     void moveX(int);
     void moveY(int);
