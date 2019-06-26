@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sculptor: Sculptor drawer</title>
+<title>Sculptor 3D: Sculptor drawer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,12 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Screenshot_11 - Copia (1).png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Screenshot_11 (1).png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Sculptor
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Sculptor 3D
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A sculptor that draws geometric figures in individual voxels (3d Pixels) and imports the figure to a .off or .vect format, readeable by geomview or meshlab. A software for auto-interpretation is being implementated and will come on the future.</div>
+   <div id="projectbrief">A sculptor that draws geometric figures in individual voxels (3d Pixels) and imports the figure to a .off or .vect format, readeable by geomview or meshlab.</div>
   </td>
  </tr>
  </tbody>
@@ -65,10 +65,58 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="class_sculptor.html" title="A class Sculptor is declarated here to call all the base functions.">Sculptor</a> drawer </div>  </div>
+<div class="title"><a class="el" href="class_sculptor.html">Sculptor</a> drawer </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>A sculptor that draws geometric figures in individual voxels (3d Pixels) and imports the figure to a .off or .vect format, readeable by geomview or meshlab. A software for auto-interpretation is being implementated and will come on the future. </p>
+<div class="textblock"><p>A sculptor that draws geometric figures in individual voxels (3d Pixels) and imports the figure to a .off or .vect format, readeable by geomview or meshlab. The image above shows the main window of the software. The square in the middle-left is the main matrix, known as our canvas. You can draw anything that you could imagine with it, painting small cubes in the combination of collors that you want. <img src="https://user-images.githubusercontent.com/31252524/59954220-05654080-945a-11e9-87ad-d1d1bcd4074c.png" alt="" class="inline"/>
+ <br />
+ The <a class="el" href="class_sculptor.html">Sculptor</a> have 8 main funcionalities: <br />
+ </p><ul>
+<li>
+<b>Put <a class="el" href="struct_voxel.html">Voxel</a></b>: Paint a small cube, at the size of 1x1 in the main canvas. </li>
+<li>
+<b>Put Box</b>: Paint a box, at the size that was set in the middle-right sliders in the main canvas. </li>
+<li>
+<b>Put Sphere</b>: Paint a sphere, at the size that was set in the bottom-right sliders in the main canvas. </li>
+<li>
+<b>Put Ellipsoid</b>: Paint an ellipsoid, at the size that was set in the bottom-right sliders in the main canvas. </li>
+<li>
+<b>Cut <a class="el" href="struct_voxel.html">Voxel</a></b>: Erases a small cube, at the size of 1x1 in the main canvas. </li>
+<li>
+<b>Cut Box</b>: Erases a box, at the size that was set in the middle right sliders in the main canvas. </li>
+<li>
+<b>Cut Sphere</b>: Erases a sphere, at the size that was set in the bottom-right sliders in the main canvas. </li>
+<li>
+<b>Cut Ellipsoid</b>: Erases an ellipsoid, at the size that was set in the bottom-right sliders in the main canvas. </li>
+</ul>
+<p><br />
+ </p>
+<p>All of these functions works just by clicking the mouse at the canvas, neddeing only to sellect witch one of the functions will take place. <br />
+ <img src="https://user-images.githubusercontent.com/31252524/59954544-95f05080-945b-11e9-85a9-8b01bec37c7e.png" alt="" class="inline"/>
+ <br />
+ </p>
+<p>The group of radio buttons can change the view of the canvas. The matrix was build in 3d, but, to make the drawing easy, you can view it in 2D, and draw in the specific plane that you want. <br />
+ <img src="https://user-images.githubusercontent.com/31252524/59954610-fd0e0500-945b-11e9-88fa-638c75c44748.png" alt="" class="inline"/>
+ <br />
+ <img src="https://user-images.githubusercontent.com/31252524/59954680-55450700-945c-11e9-98d0-4dc14361f85a.png" alt="" class="inline"/>
+ <br />
+ You can change the size of the canvas just by using the tollbar and clicking in "Create New Canvas", this will lead you to a new window, witch you can adjust the sliders to change the canvas size.</p>
+<p><br />
+ <img src="https://user-images.githubusercontent.com/31252524/59954785-08adfb80-945d-11e9-88c6-d4aac9796dcb.png" alt="" class="inline"/>
+ <br />
+ The software let you export the draw in two different types of files, a .OFF or a .VECT files, readeable by Meshlab (on Windows) or GeomView (on Linux) and offers a live view of the matrix in the last buttom, creating an instance of one of this programs, loading the file simultaniously.</p>
+<h2>Code Status</h2>
+<p><a href="https://aryclenio.github.io"><img src="https://badge.buildkite.com/ab1152b6a1f6a61d3ea4ec5b3eece8d4c2b830998459c75352.svg?branch=master" alt="Build Status" class="inline"/>
+</a></p>
+<h3>Colaborators</h3>
+<table class="doxtable">
+<tr>
+<td align="center"><a href="http://github.com/aryclenio"><img src="https://avatars.githubusercontent.com/aryclenio" width="100px;" alt="Aryclenio Xavier" class="inline"/>
+  <sub><b>Aryclenio Xavier</b></sub> </a><br />
+ <a href="https://github.com/aryclenio/Sculptor/commits?author=aryclenio" title="Code">💻</a>  </td><td align="center"><a href="http://github.com/IagoCassel"><img src="https://avatars.githubusercontent.com/IagoCassel" width="100px;" alt="Iago Cassel" class="inline"/>
+  <sub><b>Iago Cassel</b></sub> </a><br />
+ <a href="https://github.com/aryclenio/Sculptor/commits?author=IagoCassel" title="Code">💻</a>   </td></tr>
+</table>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sculptor: Sculptor Class Reference</title>
+<title>Sculptor 3D: Sculptor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,12 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Screenshot_11 - Copia (1).png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Screenshot_11 (1).png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Sculptor
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Sculptor 3D
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">A sculptor that draws geometric figures in individual voxels (3d Pixels) and imports the figure to a .off or .vect format, readeable by geomview or meshlab. A software for auto-interpretation is being implementated and will come on the future.</div>
+   <div id="projectbrief">A sculptor that draws geometric figures in individual voxels (3d Pixels) and imports the figure to a .off or .vect format, readeable by geomview or meshlab.</div>
   </td>
  </tr>
  </tbody>
@@ -71,46 +71,88 @@ $(function() {
 <div class="title">Sculptor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A class <a class="el" href="class_sculptor.html" title="A class Sculptor is declarated here to call all the base functions.">Sculptor</a> is declarated here to call all the base functions.  
- <a href="class_sculptor.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="sculptor_8h_source.html">sculptor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0dc4aaa694a738f56b0c0ef3f5d2faf8"><td class="memItemLeft" align="right" valign="top"><a id="a0dc4aaa694a738f56b0c0ef3f5d2faf8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Sculptor</b> (int xx=0, int yy=0, int zz=0)</td></tr>
 <tr class="separator:a0dc4aaa694a738f56b0c0ef3f5d2faf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f159bf97458326f16d2e238e11be7ff"><td class="memItemLeft" align="right" valign="top"><a id="a8f159bf97458326f16d2e238e11be7ff"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sculptor.html#a8f159bf97458326f16d2e238e11be7ff">~Sculptor</a> ()</td></tr>
-<tr class="memdesc:a8f159bf97458326f16d2e238e11be7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class Constructor that sequentially allocates the memory of the sculpture's space. <br /></td></tr>
-<tr class="separator:a8f159bf97458326f16d2e238e11be7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1d69da01379874b0dfd6454787cb562"><td class="memItemLeft" align="right" valign="top"><a id="af1d69da01379874b0dfd6454787cb562"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sculptor.html#af1d69da01379874b0dfd6454787cb562">setColor</a> (float r, float g, float b, float alpha)</td></tr>
-<tr class="memdesc:af1d69da01379874b0dfd6454787cb562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class Destructor that frees the memory of the sculpture's space. <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (float r, float g, float b, float alpha)</td></tr>
 <tr class="separator:af1d69da01379874b0dfd6454787cb562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bdea3048b419d58e93074060eaa7b52"><td class="memItemLeft" align="right" valign="top"><a id="a4bdea3048b419d58e93074060eaa7b52"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sculptor.html#a4bdea3048b419d58e93074060eaa7b52">putVoxel</a> (int x, int y, int z)</td></tr>
-<tr class="memdesc:a4bdea3048b419d58e93074060eaa7b52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the colors' components and transparency. <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putVoxel</b> (int x, int y, int z)</td></tr>
 <tr class="separator:a4bdea3048b419d58e93074060eaa7b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9d714a35fc8ae16d06eb5df37c3493c"><td class="memItemLeft" align="right" valign="top"><a id="ad9d714a35fc8ae16d06eb5df37c3493c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sculptor.html#ad9d714a35fc8ae16d06eb5df37c3493c">cutVoxel</a> (int x, int y, int z)</td></tr>
-<tr class="memdesc:ad9d714a35fc8ae16d06eb5df37c3493c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates a <a class="el" href="struct_voxel.html">Voxel</a> in the (x,y,z) position of the sculpture's space. <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cutVoxel</b> (int x, int y, int z)</td></tr>
 <tr class="separator:ad9d714a35fc8ae16d06eb5df37c3493c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a311ad7a0fb83fc67ac1f378be8e99fe1"><td class="memItemLeft" align="right" valign="top"><a id="a311ad7a0fb83fc67ac1f378be8e99fe1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putBox</b> (int x0, int x1, int y0, int y1, int z0, int z1)</td></tr>
+<tr class="separator:a311ad7a0fb83fc67ac1f378be8e99fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84a1b12b09e9e103fc8d78f8d1bc00f"><td class="memItemLeft" align="right" valign="top"><a id="aa84a1b12b09e9e103fc8d78f8d1bc00f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cutBox</b> (int x0, int x1, int y0, int y1, int z0, int z1)</td></tr>
+<tr class="separator:aa84a1b12b09e9e103fc8d78f8d1bc00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794a2b6ee8fc8098fd6150cb46101fc6"><td class="memItemLeft" align="right" valign="top"><a id="a794a2b6ee8fc8098fd6150cb46101fc6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putSphere</b> (int xcenter, int ycenter, int zcenter, int radius)</td></tr>
+<tr class="separator:a794a2b6ee8fc8098fd6150cb46101fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ab8c0ba5116adb8af1d01ad373ac15"><td class="memItemLeft" align="right" valign="top"><a id="a67ab8c0ba5116adb8af1d01ad373ac15"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cutSphere</b> (int xcenter, int ycenter, int zcenter, int radius)</td></tr>
+<tr class="separator:a67ab8c0ba5116adb8af1d01ad373ac15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a093615b0c2b9b3a17a56300b9b939f39"><td class="memItemLeft" align="right" valign="top"><a id="a093615b0c2b9b3a17a56300b9b939f39"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putEllipsoid</b> (int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)</td></tr>
+<tr class="separator:a093615b0c2b9b3a17a56300b9b939f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d2922c111c4c13653ee07d878151ad"><td class="memItemLeft" align="right" valign="top"><a id="a18d2922c111c4c13653ee07d878151ad"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cutEllipsoid</b> (int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)</td></tr>
+<tr class="separator:a18d2922c111c4c13653ee07d878151ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4faae5ab2d72f2f682005f468e7e8a92"><td class="memItemLeft" align="right" valign="top"><a id="a4faae5ab2d72f2f682005f468e7e8a92"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sculptor.html#a4faae5ab2d72f2f682005f468e7e8a92">writeOFF</a> (string filename)</td></tr>
-<tr class="memdesc:a4faae5ab2d72f2f682005f468e7e8a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deactivates the <a class="el" href="struct_voxel.html">Voxel</a> in the (x,y,z) position of the sculpture's space. <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeOFF</b> (string filename)</td></tr>
 <tr class="separator:a4faae5ab2d72f2f682005f468e7e8a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a200442de17ed45b7a1ece728145a2ddf"><td class="memItemLeft" align="right" valign="top"><a id="a200442de17ed45b7a1ece728145a2ddf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sculptor.html#a200442de17ed45b7a1ece728145a2ddf">writeVECT</a> (string filename)</td></tr>
-<tr class="memdesc:a200442de17ed45b7a1ece728145a2ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the <a class="el" href="struct_voxel.html">Voxel</a> sculpture on a OFF format file filename. <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeVECT</b> (string filename)</td></tr>
+<tr class="separator:a200442de17ed45b7a1ece728145a2ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab70795cade6b9a97891a1b40683a9dde"><td class="memItemLeft" align="right" valign="top"><a id="ab70795cade6b9a97891a1b40683a9dde"></a>
+vector&lt; vector&lt; <a class="el" href="struct_voxel.html">Voxel</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>readMx</b> (int dim=0, int pl=XY)</td></tr>
+<tr class="separator:ab70795cade6b9a97891a1b40683a9dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc4aaa694a738f56b0c0ef3f5d2faf8"><td class="memItemLeft" align="right" valign="top"><a id="a0dc4aaa694a738f56b0c0ef3f5d2faf8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Sculptor</b> (int xx=0, int yy=0, int zz=0)</td></tr>
+<tr class="separator:a0dc4aaa694a738f56b0c0ef3f5d2faf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d69da01379874b0dfd6454787cb562"><td class="memItemLeft" align="right" valign="top"><a id="af1d69da01379874b0dfd6454787cb562"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (float r, float g, float b, float alpha)</td></tr>
+<tr class="separator:af1d69da01379874b0dfd6454787cb562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bdea3048b419d58e93074060eaa7b52"><td class="memItemLeft" align="right" valign="top"><a id="a4bdea3048b419d58e93074060eaa7b52"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putVoxel</b> (int x, int y, int z)</td></tr>
+<tr class="separator:a4bdea3048b419d58e93074060eaa7b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d714a35fc8ae16d06eb5df37c3493c"><td class="memItemLeft" align="right" valign="top"><a id="ad9d714a35fc8ae16d06eb5df37c3493c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cutVoxel</b> (int x, int y, int z)</td></tr>
+<tr class="separator:ad9d714a35fc8ae16d06eb5df37c3493c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a311ad7a0fb83fc67ac1f378be8e99fe1"><td class="memItemLeft" align="right" valign="top"><a id="a311ad7a0fb83fc67ac1f378be8e99fe1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putBox</b> (int x0, int x1, int y0, int y1, int z0, int z1)</td></tr>
+<tr class="separator:a311ad7a0fb83fc67ac1f378be8e99fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84a1b12b09e9e103fc8d78f8d1bc00f"><td class="memItemLeft" align="right" valign="top"><a id="aa84a1b12b09e9e103fc8d78f8d1bc00f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cutBox</b> (int x0, int x1, int y0, int y1, int z0, int z1)</td></tr>
+<tr class="separator:aa84a1b12b09e9e103fc8d78f8d1bc00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794a2b6ee8fc8098fd6150cb46101fc6"><td class="memItemLeft" align="right" valign="top"><a id="a794a2b6ee8fc8098fd6150cb46101fc6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putSphere</b> (int xcenter, int ycenter, int zcenter, int radius)</td></tr>
+<tr class="separator:a794a2b6ee8fc8098fd6150cb46101fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ab8c0ba5116adb8af1d01ad373ac15"><td class="memItemLeft" align="right" valign="top"><a id="a67ab8c0ba5116adb8af1d01ad373ac15"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cutSphere</b> (int xcenter, int ycenter, int zcenter, int radius)</td></tr>
+<tr class="separator:a67ab8c0ba5116adb8af1d01ad373ac15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a093615b0c2b9b3a17a56300b9b939f39"><td class="memItemLeft" align="right" valign="top"><a id="a093615b0c2b9b3a17a56300b9b939f39"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putEllipsoid</b> (int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)</td></tr>
+<tr class="separator:a093615b0c2b9b3a17a56300b9b939f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d2922c111c4c13653ee07d878151ad"><td class="memItemLeft" align="right" valign="top"><a id="a18d2922c111c4c13653ee07d878151ad"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cutEllipsoid</b> (int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)</td></tr>
+<tr class="separator:a18d2922c111c4c13653ee07d878151ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4faae5ab2d72f2f682005f468e7e8a92"><td class="memItemLeft" align="right" valign="top"><a id="a4faae5ab2d72f2f682005f468e7e8a92"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeOFF</b> (string filename)</td></tr>
+<tr class="separator:a4faae5ab2d72f2f682005f468e7e8a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a200442de17ed45b7a1ece728145a2ddf"><td class="memItemLeft" align="right" valign="top"><a id="a200442de17ed45b7a1ece728145a2ddf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeVECT</b> (string filename)</td></tr>
 <tr class="separator:a200442de17ed45b7a1ece728145a2ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A class <a class="el" href="class_sculptor.html" title="A class Sculptor is declarated here to call all the base functions.">Sculptor</a> is declarated here to call all the base functions. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="sculptor_8h_source.html">sculptor.h</a></li>
+<li><a class="el" href="voxel_8h_source.html">voxel.h</a></li>
 <li>sculptor.cpp</li>
 <li>voxel.cpp</li>
 </ul>
