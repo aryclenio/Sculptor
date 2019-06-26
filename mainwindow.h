@@ -19,18 +19,32 @@ public:
     ~MainWindow();
 
 public slots:
-    void changeXY(); ///Slot to change the plane currently ON.
-    void changeYZ(); ///Slot to change the plane currently ON.
-    void changeZX(); ///Slot to change the plane currently ON.
-    void pVoxel(); ///PutVoxel slot, called by the pushbuttom.
-    void cVoxel(); ///CutVoxel slot, called by the pushbuttom.
-    void pBox(); ///PutBox slot, called by the pushbuttom.
-    void cBox(); ///CutBox slot, called by the pushbuttom.
-    void pShpere(); ///PutSphere slot, called by the pushbuttom.
-    void cShpere(); ///CutSphere slot, called by the pushbuttom.
-    void pEllip(); ///PutEllipsoid slot, called by the pushbuttom.
-    void cEllip(); ///CutEllipsoid slot, called by the pushbuttom.
-    void selectPlane(); ///Slot to select a plane
+    ///Slot to change the plane currently ON.
+    void changeXY();
+    ///Slot to change the plane currently ON.
+    void changeYZ();
+    ///Slot to change the plane currently ON.
+    void changeZX();
+    ///PutVoxel slot, called by the pushbuttom.
+    void pVoxel();
+    ///CutVoxel slot, called by the pushbuttom.
+    void cVoxel();
+    ///PutBox slot, called by the pushbuttom.
+    void pBox();
+    ///CutBox slot, called by the pushbuttom.
+    void cBox();
+    ///PutSphere slot, called by the pushbuttom.
+    void pShpere();
+    ///CutSphere slot, called by the pushbuttom.
+    void cShpere();
+    ///PutEllipsoid slot, called by the pushbuttom.
+    void pEllip();
+    ///CutEllipsoid slot, called by the pushbuttom.
+    void cEllip();
+    ///Slot to select a plane.
+    void selectPlane();
+     ///Slot to open the .off file in Meshlab, called by the pushbuttom.
+    void meshOpen();
 
 private:
     Ui::MainWindow *ui;

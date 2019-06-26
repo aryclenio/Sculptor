@@ -4,12 +4,16 @@
 #include "sculptor.h"
 #include "painter.h"
 #include "QMessageBox"
+#include "QProcess"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->redSlider->setMinimum(10);
+    ui->BlueSlider->setMinimum(10);
+    ui->greenSlider->setMinimum(10);
     ui->redSlider->setMaximum(255);
     ui->BlueSlider->setMaximum(255);
     ui->greenSlider->setMaximum(255);
@@ -22,86 +26,107 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->ySlider->setMaximum(ui->widget->sy/2 -1);
     ui->zSlider->setMaximum(ui->widget->sz/2 -1);
     ui->sliderSlice->setMaximum(ui->widget->sz -1);
+
     connect(ui->sliderSlice,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeSlice(int)));
+
     connect(ui->putVoxel,
             SIGNAL(clicked(bool)),
             this,
             SLOT(pVoxel()));
+
     connect(ui->cutVoxel,
             SIGNAL(clicked(bool)),
             this,
             SLOT(cVoxel()));
+
     connect(ui->putBox,
             SIGNAL(clicked(bool)),
             this,
             SLOT(pBox()));
+
     connect(ui->cutBox,
             SIGNAL(clicked(bool)),
             this,
             SLOT(cBox()));
-    connect(ui->putEllipsoid,
-            SIGNAL(clicked(bool)),
-            this,
-            SLOT(pShpere()));
-    connect(ui->cutEllipsoid,
-            SIGNAL(clicked(bool)),
-            this,
-            SLOT(cShpere()));
+
     connect(ui->putSphere,
             SIGNAL(clicked(bool)),
             this,
-            SLOT(pEllip()));
+            SLOT(pShpere()));
+
     connect(ui->cutSphere,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(cShpere()));
+
+    connect(ui->putEllipsoid,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(pEllip()));
+
+    connect(ui->cutEllipsoid,
             SIGNAL(clicked(bool)),
             this, //esta this porque eu estou falando da mainwindow
             SLOT(cEllip()));
+
     connect(ui->redSlider,
             SIGNAL(valueChanged(int)),
             ui->widget, //aqui é onde eu vou mandar
             SLOT(changeRed(int)));
+
     connect(ui->BlueSlider,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeBlue(int)));
+
     connect(ui->greenSlider,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeGreen(int)));
+
     connect(ui->aSlider,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeAlpha(int)));
+
     connect(ui->sliderX,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeDimx(int)));
+
     connect(ui->sliderY,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeDimy(int)));
+
     connect(ui->sliderZ,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeDimz(int)));
+
     connect(ui->sphereSlider,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeRad(int)));
+
     connect(ui->xSlider,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeRx(int)));
+
     connect(ui->ySlider,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeRy(int)));
+
     connect(ui->zSlider,
             SIGNAL(valueChanged(int)),
             ui->widget,
             SLOT(changeRz(int)));
+
     connect(ui->btXY,
             SIGNAL(clicked(bool)),
             this,
@@ -116,18 +141,26 @@ MainWindow::MainWindow(QWidget *parent) :
             SIGNAL(clicked(bool)),
             this,
             SLOT(changeZX()));
+
     connect(ui->actionExport_off_File,
             SIGNAL(triggered(bool)),
             ui->widget,
             SLOT(Off()));
+
     connect(ui->actionExport_vect_File,
             SIGNAL(triggered(bool)),
             ui->widget,
             SLOT(Vect()));
+
     connect(ui->actionCreate_Plane,
             SIGNAL(triggered(bool)),
             this,
             SLOT(selectPlane()));
+
+    connect(ui->MeshLab,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(meshOpen()));
 }
 
 MainWindow::~MainWindow()
@@ -212,4 +245,14 @@ void MainWindow::pEllip() //PE
 void MainWindow::cEllip() //PS
 {
     ui->widget->sh= 8;
+}
+void MainWindow::meshOpen() //MO
+{
+    QProcess *mesh = new QProcess(this);
+    QString meshDir = "C:/Program Files/VCG/MeshLab/meshlab.exe";
+    QString offDir = "C:/Users/iagop/Desktop/Sculptor-master/Sculptor-master/sculptor.off";
+    QStringList arg;
+    arg << offDir;
+    mesh->start(meshDir,arg);
+    mesh->waitForFinished();
 }

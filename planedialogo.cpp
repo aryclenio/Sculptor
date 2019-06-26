@@ -6,6 +6,9 @@ PlaneDialogo::PlaneDialogo(QWidget *parent) :
     ui(new Ui::PlaneDialogo)
 {
     ui->setupUi(this);
+    ui->xSlider->setMaximum(100);
+    ui->ySlider->setMaximum(100);
+    ui->zSlider->setMaximum(100);
 }
 
 PlaneDialogo::~PlaneDialogo()
